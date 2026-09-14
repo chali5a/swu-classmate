@@ -173,7 +173,6 @@ h1, h2, h3, h4, .navbar-brand {
 .cr-navbar {
   background-color: var(--cr-surface);
   border-bottom: 1px solid var(--cr-border);
-  backdrop-filter: blur(8px);
 }
 
 .cr-navbar .nav-link {
@@ -230,9 +229,6 @@ h1, h2, h3, h4, .navbar-brand {
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.25;
-  /* เกลี่ยความยาวแต่ละบรรทัดให้ใกล้เคียงกัน กันไม่ให้เหลือคำเดียวโดดบรรทัดสุดท้าย
-     เบราว์เซอร์รุ่นเก่าที่ไม่รองรับจะตัดบรรทัดแบบปกติ ไม่พัง */
-  text-wrap: balance;
 }
 
 /* เน้นคำในหัวข้อใหญ่ด้วยสีแดง มศว */
@@ -876,20 +872,19 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 .check-list li {
-  position: relative;
-  padding-left: 30px;
+  display: flex;
+  align-items: flex-start; /* ให้ไอคอนอยู่ชิดบน ตรงกับบรรทัดแรกของข้อความ */
+  gap: 10px;
   margin-bottom: 12px;
   color: var(--cr-muted);
   font-size: 0.92rem;
 }
 
-.check-list li::before {
-  content: "\F26A"; /* ไอคอน bi-check-circle-fill ของ Bootstrap Icons */
-  font-family: "bootstrap-icons";
-  position: absolute;
-  left: 0;
-  top: 0;
+/* ไอคอนติ๊กถูกหน้าแต่ละข้อ (เขียน <i class="bi bi-check-circle-fill"> ไว้ใน HTML) */
+.check-list li i {
+  flex: none;
   color: var(--cr-primary);
+  margin-top: 3px;
 }
 
 /* ตารางข้อมูลด้านข้าง */
@@ -1479,7 +1474,6 @@ h1, h2, h3, h4, .navbar-brand {
   list-style: none;
   margin: 0;
   padding: 0;
-  counter-reset: rank;
 }
 
 .rank-slot {
@@ -1494,7 +1488,7 @@ h1, h2, h3, h4, .navbar-brand {
   border-bottom: 0;
 }
 
-/* เลขอันดับ นับอัตโนมัติจาก CSS counter จึงไม่ต้องเขียนเลขใน JS */
+/* กล่องเลขอันดับ ตัวเลขข้างในใส่มาจาก JS */
 .slot-num {
   flex: none;
   width: 28px;
@@ -1506,11 +1500,6 @@ h1, h2, h3, h4, .navbar-brand {
   font-weight: 600;
   display: grid;
   place-items: center;
-}
-
-.slot-num::before {
-  counter-increment: rank;
-  content: counter(rank);
 }
 
 .slot-body {

@@ -53,7 +53,7 @@ function applySearch() {
 
 /* ---------- 2) วาดรายการอันดับใหม่ทั้งหมด ---------- */
 function renderRank() {
-  rankList.replaceChildren();
+  rankList.innerHTML = "";  // ล้างรายการเดิมก่อนวาดใหม่
 
   ranked.forEach((code, i) => {
     const d = cardOf(code).dataset;
@@ -61,7 +61,7 @@ function renderRank() {
     const li = document.createElement("li");
     li.className = "rank-slot";
     li.innerHTML = `
-      <span class="slot-num" aria-hidden="true"></span>
+      <span class="slot-num" aria-hidden="true">${i + 1}</span>
       <span class="slot-body">
         <span class="slot-name d-block">${d.name}</span>
         <span class="slot-meta">${d.code} · ${d.credit} หน่วยกิต</span>
@@ -105,7 +105,10 @@ function add(code) {
 }
 
 function swap(a, b) {
-  [ranked[a], ranked[b]] = [ranked[b], ranked[a]];
+  // สลับตำแหน่ง a กับ b โดยพักค่าไว้ในตัวแปร temp ก่อน
+  const temp = ranked[a];
+  ranked[a] = ranked[b];
+  ranked[b] = temp;
   renderRank();
 }
 
