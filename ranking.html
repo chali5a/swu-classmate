@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>จัดอันดับวิชาเสรี | SWU CLASSMATE</title>
+  <meta name="description" content="จัดอันดับวิชาเลือกเสรีของมหาวิทยาลัยศรีนครินทรวิโรฒ ทั้งคะแนนรีวิวสูงสุด วิชางานน้อยที่สุด และวิชาที่มีคนรีวิวมากที่สุด" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 + Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- ไอคอนประจำเว็บ (แสดงบนแท็บเบราว์เซอร์ และตอนบันทึกลงหน้าจอมือถือ) -->
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="images/icon-192.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <meta name="theme-color" content="#da2128" />
+
+  <!-- CSS ภายนอกที่เขียนเอง -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar navbar-expand-lg cr-navbar sticky-top">
+    <div class="container">
+
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo.png" alt="SWU CLASSMATE" class="brand-logo"
+             width="271" height="160" />
+      </a>
+
+      <button class="navbar-toggler border-0" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="เปิดเมนู">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">วิชาเสรีทั้งหมด</a></li>
+          <li class="nav-item"><a class="nav-link active" href="ranking.html" aria-current="page">จัดอันดับ</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">ทดลองจัดอันดับ</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <button id="themeToggle" type="button" aria-label="สลับโหมดสว่าง/มืด">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+          <a href="write-review.html" class="btn btn-cr">
+            <i class="bi bi-pencil-square me-1"></i> เขียนรีวิว
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- ==================== หัวหน้าเพจ ==================== -->
+  <header class="page-head">
+    <div class="container">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>
+          <li class="breadcrumb-item active" aria-current="page">จัดอันดับ</li>
+        </ol>
+      </nav>
+
+      <h1 class="section-title mb-2">จัดอันดับวิชาเลือกเสรี</h1>
+      <p class="text-muted-cr mb-0">
+        อันดับคำนวณจากคะแนนรีวิวของนิสิตทั้งหมด 3,075 รีวิว ในภาคเรียนที่ 1 ปีการศึกษา 2568
+      </p>
+
+    </div>
+  </header>
+
+  <!-- ==================== เนื้อหาหลัก ==================== -->
+  <main>
+
+  <!-- ==================== แท่นรับรางวัล 3 อันดับแรก ==================== -->
+  <section class="section pb-0">
+    <div class="container">
+
+      <h2 class="section-title h3 mb-4 text-center">3 อันดับคะแนนสูงสุด</h2>
+
+      <div class="podium">
+          <article class="podium-item">
+            <div class="podium-medal">2</div>
+            <p class="podium-code mb-0">SWU 132</p>
+            <h3 class="podium-name">ภาษาเกาหลีเพื่อการสื่อสาร</h3>
+            <span class="stars" role="img" style="--pct: 92%" aria-label="คะแนน 4.6 จาก 5"></span>
+            <p class="podium-score mt-2 mb-1">4.6</p>
+            <p class="text-muted-cr small mb-3">จาก 241 รีวิว</p>
+            <a href="course-detail.html" class="btn btn-cr-outline btn-sm">ดูรายละเอียด</a>
+          </article>
+          <article class="podium-item is-first">
+            <div class="podium-medal">1</div>
+            <p class="podium-code mb-0">SWU 356</p>
+            <h3 class="podium-name">การจัดการทางการเงินส่วนบุคคล</h3>
+            <span class="stars" role="img" style="--pct: 94%" aria-label="คะแนน 4.7 จาก 5"></span>
+            <p class="podium-score mt-2 mb-1">4.7</p>
+            <p class="text-muted-cr small mb-3">จาก 428 รีวิว</p>
+            <a href="course-detail.html" class="btn btn-cr-outline btn-sm">ดูรายละเอียด</a>
+          </article>
+          <article class="podium-item">
+            <div class="podium-medal">3</div>
+            <p class="podium-code mb-0">SWU 141</p>
+            <h3 class="podium-name">ชีวิตในโลกดิจิทัล</h3>
+            <span class="stars" role="img" style="--pct: 90%" aria-label="คะแนน 4.5 จาก 5"></span>
+            <p class="podium-score mt-2 mb-1">4.5</p>
+            <p class="text-muted-cr small mb-3">จาก 312 รีวิว</p>
+            <a href="course-detail.html" class="btn btn-cr-outline btn-sm">ดูรายละเอียด</a>
+          </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ตารางอันดับ ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- ---------- คอลัมน์ซ้าย: ตารางแยกตามเกณฑ์ ---------- -->
+        <div class="col-lg-8">
+          <div class="panel">
+
+            <!-- แท็บเลือกเกณฑ์การจัดอันดับ -->
+            <ul class="nav cr-tabs mb-4" id="rankTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tabRating-tab" data-bs-toggle="tab"
+                        data-bs-target="#tabRating" type="button" role="tab"
+                        aria-controls="tabRating" aria-selected="true">
+                  <i class="bi bi-star me-1"></i> คะแนนสูงสุด
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tabWork-tab" data-bs-toggle="tab"
+                        data-bs-target="#tabWork" type="button" role="tab"
+                        aria-controls="tabWork" aria-selected="false">
+                  <i class="bi bi-clipboard-check me-1"></i> งานน้อยที่สุด
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tabPop-tab" data-bs-toggle="tab"
+                        data-bs-target="#tabPop" type="button" role="tab"
+                        aria-controls="tabPop" aria-selected="false">
+                  <i class="bi bi-fire me-1"></i> รีวิวมากที่สุด
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+
+              <!-- ----- เกณฑ์ที่ 1: คะแนนรีวิวสูงสุด ----- -->
+              <div class="tab-pane fade show active" id="tabRating" role="tabpanel"
+                   aria-labelledby="tabRating-tab" tabindex="0">
+                <div class="table-responsive">
+                  <table class="table table-hover rank-table">
+                    <caption>เรียงจากคะแนนรีวิวเฉลี่ยมากไปน้อย หากคะแนนเท่ากันจะเรียงตามจำนวนรีวิว</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">อันดับ</th>
+                        <th scope="col">วิชา</th>
+                        <th scope="col" class="d-none d-md-table-cell">หมวดหมู่</th>
+                        <th scope="col" class="d-none d-sm-table-cell">หน่วยกิต</th>
+                        <th scope="col">คะแนน</th>
+                        <th scope="col" class="d-none d-lg-table-cell">จำนวนรีวิว</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+              <tr>
+                <th scope="row"><span class="rank-no top-1">1</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    การจัดการทางการเงินส่วนบุคคล
+                    <small>SWU 356 · คณะบริหารธุรกิจเพื่อสังคม</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ธุรกิจ &amp; การเงิน</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">4.7 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">428 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no top-2">2</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ภาษาเกาหลีเพื่อการสื่อสาร
+                    <small>SWU 132 · คณะมนุษยศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ภาษา &amp; การสื่อสาร</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">6</td>
+                <td class="rank-value">4.6 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">241 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no top-3">3</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ชีวิตในโลกดิจิทัล
+                    <small>SWU 141 · สำนักนวัตกรรมการเรียนรู้</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">เทคโนโลยี</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">4.5 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">312 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">4</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ศิลปะและความคิดสร้างสรรค์
+                    <small>SWU 254 · คณะศิลปกรรมศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ศิลปะ &amp; สร้างสรรค์</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">4.4 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">265 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">5</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    พลเมืองโลกกับการพัฒนาที่ยั่งยืน
+                    <small>SWU 246 · วิทยาลัยนานาชาติเพื่อศึกษาความยั่งยืน</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สังคม &amp; พลเมือง</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">4</td>
+                <td class="rank-value">4.4 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">186 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">6</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    สุขภาพเพื่อชีวิต
+                    <small>SWU 374 · คณะพลศึกษา</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สุขภาพ &amp; กีฬา</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">4.2 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">389 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">7</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    โครงงานสร้างสรรค์เพื่อชุมชน
+                    <small>SWU 385 · วิทยาลัยอุตสาหกรรมสร้างสรรค์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ศิลปะ &amp; สร้างสรรค์</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">5</td>
+                <td class="rank-value">4.2 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">97 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">8</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ภาษาอังกฤษเพื่อประสิทธิภาพการสื่อสาร
+                    <small>SWU 121 · คณะมนุษยศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ภาษา &amp; การสื่อสาร</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">4.1 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">356 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">9</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ธุรกิจในโลกดิจิทัล
+                    <small>SWU 341 · คณะบริหารธุรกิจเพื่อสังคม</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">เทคโนโลยี</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">4.0 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">187 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">10</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    พลเมืองวิวัฒน์
+                    <small>SWU 261 · คณะสังคมศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สังคม &amp; พลเมือง</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">3.6 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">274 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">11</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    เศรษฐกิจในกระแสโลกาภิวัตน์
+                    <small>SWU 364 · คณะเศรษฐศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ธุรกิจ &amp; การเงิน</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">3.4 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">198 รีวิว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">12</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    กิจกรรมเข้าจังหวะและการเต้น
+                    <small>SWU 372 · คณะพลศึกษา</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สุขภาพ &amp; กีฬา</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">2</td>
+                <td class="rank-value">3.3 <i class="bi bi-star-fill icon-xs"></i></td>
+                <td class="d-none d-lg-table-cell text-muted-cr">142 รีวิว</td>
+              </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- ----- เกณฑ์ที่ 2: ปริมาณงานน้อยที่สุด ----- -->
+              <div class="tab-pane fade" id="tabWork" role="tabpanel"
+                   aria-labelledby="tabWork-tab" tabindex="0">
+                <div class="table-responsive">
+                  <table class="table table-hover rank-table">
+                    <caption>ตัวเลขคือคะแนนปริมาณงาน ยิ่งน้อยแปลว่างานยิ่งเบา</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">อันดับ</th>
+                        <th scope="col">วิชา</th>
+                        <th scope="col" class="d-none d-md-table-cell">หมวดหมู่</th>
+                        <th scope="col" class="d-none d-sm-table-cell">หน่วยกิต</th>
+                        <th scope="col">ปริมาณงาน</th>
+                        <th scope="col" class="d-none d-lg-table-cell">คะแนนรวม</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+              <tr>
+                <th scope="row"><span class="rank-no top-1">1</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    สุขภาพเพื่อชีวิต
+                    <small>SWU 374 · คณะพลศึกษา</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สุขภาพ &amp; กีฬา</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">42 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.2 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no top-2">2</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ภาษาอังกฤษเพื่อประสิทธิภาพการสื่อสาร
+                    <small>SWU 121 · คณะมนุษยศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ภาษา &amp; การสื่อสาร</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">50 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.1 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no top-3">3</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ชีวิตในโลกดิจิทัล
+                    <small>SWU 141 · สำนักนวัตกรรมการเรียนรู้</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">เทคโนโลยี</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">55 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.5 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">4</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    การจัดการทางการเงินส่วนบุคคล
+                    <small>SWU 356 · คณะบริหารธุรกิจเพื่อสังคม</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ธุรกิจ &amp; การเงิน</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">60 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.7 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">5</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ภาษาเกาหลีเพื่อการสื่อสาร
+                    <small>SWU 132 · คณะมนุษยศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ภาษา &amp; การสื่อสาร</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">6</td>
+                <td class="rank-value">70 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.6 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">6</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    เศรษฐกิจในกระแสโลกาภิวัตน์
+                    <small>SWU 364 · คณะเศรษฐศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ธุรกิจ &amp; การเงิน</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">70 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">3.4 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">7</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ศิลปะและความคิดสร้างสรรค์
+                    <small>SWU 254 · คณะศิลปกรรมศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ศิลปะ &amp; สร้างสรรค์</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">72 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.4 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">8</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    พลเมืองโลกกับการพัฒนาที่ยั่งยืน
+                    <small>SWU 246 · วิทยาลัยนานาชาติเพื่อศึกษาความยั่งยืน</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สังคม &amp; พลเมือง</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">4</td>
+                <td class="rank-value">72 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.4 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">9</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    พลเมืองวิวัฒน์
+                    <small>SWU 261 · คณะสังคมศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สังคม &amp; พลเมือง</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">78 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">3.6 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">10</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ธุรกิจในโลกดิจิทัล
+                    <small>SWU 341 · คณะบริหารธุรกิจเพื่อสังคม</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">เทคโนโลยี</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">80 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.0 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">11</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    โครงงานสร้างสรรค์เพื่อชุมชน
+                    <small>SWU 385 · วิทยาลัยอุตสาหกรรมสร้างสรรค์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ศิลปะ &amp; สร้างสรรค์</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">5</td>
+                <td class="rank-value">84 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.2 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">12</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    กิจกรรมเข้าจังหวะและการเต้น
+                    <small>SWU 372 · คณะพลศึกษา</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สุขภาพ &amp; กีฬา</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">2</td>
+                <td class="rank-value">88 / 100</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">3.3 ดาว</td>
+              </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- ----- เกณฑ์ที่ 3: มีคนรีวิวมากที่สุด ----- -->
+              <div class="tab-pane fade" id="tabPop" role="tabpanel"
+                   aria-labelledby="tabPop-tab" tabindex="0">
+                <div class="table-responsive">
+                  <table class="table table-hover rank-table">
+                    <caption>วิชาที่มีนิสิตเข้ามารีวิวมากที่สุด สะท้อนว่าเป็นวิชายอดฮิตที่คนลงเยอะ</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">อันดับ</th>
+                        <th scope="col">วิชา</th>
+                        <th scope="col" class="d-none d-md-table-cell">หมวดหมู่</th>
+                        <th scope="col" class="d-none d-sm-table-cell">หน่วยกิต</th>
+                        <th scope="col">จำนวนรีวิว</th>
+                        <th scope="col" class="d-none d-lg-table-cell">คะแนนรวม</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+              <tr>
+                <th scope="row"><span class="rank-no top-1">1</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    การจัดการทางการเงินส่วนบุคคล
+                    <small>SWU 356 · คณะบริหารธุรกิจเพื่อสังคม</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ธุรกิจ &amp; การเงิน</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">428 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.7 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no top-2">2</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    สุขภาพเพื่อชีวิต
+                    <small>SWU 374 · คณะพลศึกษา</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สุขภาพ &amp; กีฬา</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">389 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.2 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no top-3">3</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ภาษาอังกฤษเพื่อประสิทธิภาพการสื่อสาร
+                    <small>SWU 121 · คณะมนุษยศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ภาษา &amp; การสื่อสาร</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">356 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.1 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">4</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ชีวิตในโลกดิจิทัล
+                    <small>SWU 141 · สำนักนวัตกรรมการเรียนรู้</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">เทคโนโลยี</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">312 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.5 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">5</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    พลเมืองวิวัฒน์
+                    <small>SWU 261 · คณะสังคมศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สังคม &amp; พลเมือง</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">274 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">3.6 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">6</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ศิลปะและความคิดสร้างสรรค์
+                    <small>SWU 254 · คณะศิลปกรรมศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ศิลปะ &amp; สร้างสรรค์</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">265 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.4 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">7</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ภาษาเกาหลีเพื่อการสื่อสาร
+                    <small>SWU 132 · คณะมนุษยศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ภาษา &amp; การสื่อสาร</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">6</td>
+                <td class="rank-value">241 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.6 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">8</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    เศรษฐกิจในกระแสโลกาภิวัตน์
+                    <small>SWU 364 · คณะเศรษฐศาสตร์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ธุรกิจ &amp; การเงิน</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">198 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">3.4 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">9</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    ธุรกิจในโลกดิจิทัล
+                    <small>SWU 341 · คณะบริหารธุรกิจเพื่อสังคม</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">เทคโนโลยี</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">3</td>
+                <td class="rank-value">187 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.0 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">10</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    พลเมืองโลกกับการพัฒนาที่ยั่งยืน
+                    <small>SWU 246 · วิทยาลัยนานาชาติเพื่อศึกษาความยั่งยืน</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สังคม &amp; พลเมือง</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">4</td>
+                <td class="rank-value">186 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.4 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">11</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    กิจกรรมเข้าจังหวะและการเต้น
+                    <small>SWU 372 · คณะพลศึกษา</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">สุขภาพ &amp; กีฬา</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">2</td>
+                <td class="rank-value">142 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">3.3 ดาว</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="rank-no">12</span></th>
+                <td>
+                  <a href="course-detail.html" class="rank-course">
+                    โครงงานสร้างสรรค์เพื่อชุมชน
+                    <small>SWU 385 · วิทยาลัยอุตสาหกรรมสร้างสรรค์</small>
+                  </a>
+                </td>
+                <td class="d-none d-md-table-cell text-muted-cr">ศิลปะ &amp; สร้างสรรค์</td>
+                <td class="d-none d-sm-table-cell text-muted-cr">5</td>
+                <td class="rank-value">97 รีวิว</td>
+                <td class="d-none d-lg-table-cell text-muted-cr">4.2 ดาว</td>
+              </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- คอลัมน์ขวา: สรุปและอันดับรายหมวด ---------- -->
+        <aside class="col-lg-4">
+          <div class="sticky-side">
+
+            <!-- สถิติรวม -->
+            <div class="panel mb-4">
+              <h2 class="panel-title">
+                <i class="bi bi-bar-chart-line me-1"></i> ภาพรวมภาคเรียนนี้
+              </h2>
+              <dl class="list-group list-group-flush info-list">
+                <div class="list-group-item">
+                  <dt>วิชาที่มีรีวิว</dt>
+                  <dd>12 วิชา</dd>
+                </div>
+                <div class="list-group-item">
+                  <dt>รีวิวทั้งหมด</dt>
+                  <dd>3,075 รีวิว</dd>
+                </div>
+                <div class="list-group-item">
+                  <dt>คะแนนเฉลี่ยรวม</dt>
+                  <dd>4.12 / 5.0</dd>
+                </div>
+                <div class="list-group-item">
+                  <dt>คณะที่เปิดสอน</dt>
+                  <dd>9 หน่วยงาน</dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- อันดับ 1 ของแต่ละหมวด -->
+            <div class="panel mb-4">
+              <h2 class="panel-title">
+                <i class="bi bi-trophy me-1"></i> ที่ 1 ของแต่ละหมวด
+              </h2>
+            <a href="course-detail.html" class="cat-rank">
+              <span class="cat-rank-icon"><i class="bi bi-graph-up-arrow"></i></span>
+              <span class="cat-rank-body">
+                <span class="cat-rank-label d-block">ธุรกิจ &amp; การเงิน</span>
+                <span class="cat-rank-name">การจัดการทางการเงินส่วนบุคคล</span>
+              </span>
+              <span class="rank-value ms-auto">4.7</span>
+            </a>
+            <a href="course-detail.html" class="cat-rank">
+              <span class="cat-rank-icon"><i class="bi bi-translate"></i></span>
+              <span class="cat-rank-body">
+                <span class="cat-rank-label d-block">ภาษา &amp; การสื่อสาร</span>
+                <span class="cat-rank-name">ภาษาเกาหลีเพื่อการสื่อสาร</span>
+              </span>
+              <span class="rank-value ms-auto">4.6</span>
+            </a>
+            <a href="course-detail.html" class="cat-rank">
+              <span class="cat-rank-icon"><i class="bi bi-cpu"></i></span>
+              <span class="cat-rank-body">
+                <span class="cat-rank-label d-block">เทคโนโลยี</span>
+                <span class="cat-rank-name">ชีวิตในโลกดิจิทัล</span>
+              </span>
+              <span class="rank-value ms-auto">4.5</span>
+            </a>
+            <a href="course-detail.html" class="cat-rank">
+              <span class="cat-rank-icon"><i class="bi bi-palette"></i></span>
+              <span class="cat-rank-body">
+                <span class="cat-rank-label d-block">ศิลปะ &amp; สร้างสรรค์</span>
+                <span class="cat-rank-name">ศิลปะและความคิดสร้างสรรค์</span>
+              </span>
+              <span class="rank-value ms-auto">4.4</span>
+            </a>
+            <a href="course-detail.html" class="cat-rank">
+              <span class="cat-rank-icon"><i class="bi bi-people"></i></span>
+              <span class="cat-rank-body">
+                <span class="cat-rank-label d-block">สังคม &amp; พลเมือง</span>
+                <span class="cat-rank-name">พลเมืองโลกกับการพัฒนาที่ยั่งยืน</span>
+              </span>
+              <span class="rank-value ms-auto">4.4</span>
+            </a>
+            <a href="course-detail.html" class="cat-rank">
+              <span class="cat-rank-icon"><i class="bi bi-heart-pulse"></i></span>
+              <span class="cat-rank-body">
+                <span class="cat-rank-label d-block">สุขภาพ &amp; กีฬา</span>
+                <span class="cat-rank-name">สุขภาพเพื่อชีวิต</span>
+              </span>
+              <span class="rank-value ms-auto">4.2</span>
+            </a>
+            </div>
+
+            <!-- วิธีคิดอันดับ -->
+            <div class="panel">
+              <h2 class="panel-title">
+                <i class="bi bi-info-circle me-1"></i> อันดับคิดยังไง
+              </h2>
+              <ul class="check-list">
+                <li>ใช้ค่าเฉลี่ยจากรีวิวทุกอันของวิชานั้น</li>
+                <li>นับเฉพาะรีวิวจากผู้ที่ยืนยันอีเมลนิสิตแล้ว</li>
+                <li>วิชาที่มีน้อยกว่า 20 รีวิว จะยังไม่ถูกจัดอันดับ</li>
+                <li>อัปเดตอันดับใหม่ทุกสิ้นเดือน</li>
+              </ul>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="pb-5">
+    <div class="container">
+      <div class="cta-band d-flex flex-wrap align-items-center justify-content-between gap-4">
+        <div>
+          <h2 class="h3 mb-2">วิชาที่คุณเรียนยังไม่ติดอันดับ?</h2>
+          <p class="mb-0 opacity-75">
+            เขียนรีวิวเพิ่ม เพื่อให้วิชาดี ๆ ที่คนยังไม่รู้จักได้ขึ้นมาอยู่ในตาราง
+          </p>
+        </div>
+        <a href="write-review.html" class="btn btn-light">
+          <i class="bi bi-pencil-square me-1"></i> เขียนรีวิววิชานี้
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="cr-footer">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-lg-4">
+          <a class="navbar-brand d-flex align-items-center mb-3" href="index.html">
+            <img src="images/logo.png" alt="SWU CLASSMATE" class="brand-logo brand-logo-lg"
+                 width="271" height="160" />
+          </a>
+          <p class="text-muted-cr small mb-0 text-narrow">
+            เว็บรวมรีวิววิชาเลือกเสรีของมหาวิทยาลัยศรีนครินทรวิโรฒ โดยนิสิตเพื่อนิสิต
+            จัดทำขึ้นเพื่อการศึกษา ข้อมูลทั้งหมดเป็นข้อมูลจำลอง ไม่ใช่ข้อมูลทางการของมหาวิทยาลัย
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 mb-3">เมนู</h2>
+          <ul class="list-unstyled small mb-0">
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="courses.html">วิชาเสรีทั้งหมด</a></li>
+            <li><a href="ranking.html">จัดอันดับ</a></li>
+            <li><a href="about.html">ทดลองจัดอันดับ</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h2 class="h6 mb-3">หมวดหมู่</h2>
+          <ul class="list-unstyled small mb-0">
+            <li><a href="courses.html">เทคโนโลยี</a></li>
+            <li><a href="courses.html">ศิลปะ &amp; สร้างสรรค์</a></li>
+            <li><a href="courses.html">ธุรกิจ &amp; การเงิน</a></li>
+            <li><a href="courses.html">สุขภาพ &amp; กีฬา</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h2 class="h6 mb-3">ติดตามเรา</h2>
+          <div class="d-flex gap-2">
+            <a href="#" class="chip" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="chip" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="chip" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="my-4 hr-cr" />
+      <p class="text-center text-muted-cr small mb-0">
+        &copy; <span id="year"></span> SWU CLASSMATE · จัดทำเพื่อการศึกษา ไม่ใช่เว็บไซต์ทางการของมหาวิทยาลัย
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap JS (ใช้สำหรับเมนูมือถือ และแท็บจัดอันดับ) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS ของเว็บ -->
+  <script src="js/main.js"></script>
+</body>
+</html>

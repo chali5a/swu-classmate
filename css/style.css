@@ -1,0 +1,1607 @@
+/* ===========================================
+   SWU CLASSMATE - Custom Stylesheet
+   โทนสีตาม CI มหาวิทยาลัยศรีนครินทรวิโรฒ (เทา-แดง)
+   ใช้ทับ/เสริม Bootstrap 5.3
+   =========================================== */
+
+/* ---------- 1. ตัวแปรสีของเว็บ ---------- */
+:root {
+  /* สีหลัก: แดง มศว */
+  --cr-primary: #da2128;
+  --cr-primary-dark: #b01a20;
+  --cr-primary-soft: rgba(218, 33, 40, 0.08);
+  /* สีรอง: เทา มศว */
+  --cr-gray: #636466;
+  --cr-gray-dark: #454648;
+  --cr-accent: #c8a24a;
+
+  --cr-surface: #ffffff;
+  --cr-bg: #f6f4f4;
+  --cr-text: #2b2626;
+  --cr-muted: #636466;
+  --cr-border: #e5e0e0;
+  --cr-shadow: 0 10px 30px rgba(43, 38, 38, 0.1);
+  --cr-radius: 16px;
+}
+
+[data-bs-theme="dark"] {
+  --cr-primary: #f0474e;
+  --cr-primary-dark: #da2128;
+  --cr-primary-soft: rgba(240, 71, 78, 0.14);
+  --cr-gray: #9b9c9e;
+  --cr-accent: #d9b969;
+
+  --cr-surface: #241f20;
+  --cr-bg: #191516;
+  --cr-text: #ece7e7;
+  --cr-muted: #a49d9d;
+  --cr-border: #3a3234;
+  --cr-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- 2. พื้นฐานทั้งเว็บ ---------- */
+body {
+  font-family: "IBM Plex Sans Thai", "Segoe UI", sans-serif;
+  background-color: var(--cr-bg);
+  color: var(--cr-text);
+}
+
+h1, h2, h3, h4, .navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: var(--cr-muted);
+  margin-bottom: 40px;
+}
+
+.text-muted-cr {
+  color: var(--cr-muted) !important;
+}
+
+/* ไอคอนสีแดง มศว */
+.icon-cr {
+  color: var(--cr-primary);
+}
+
+/* ไอคอนขนาดเล็กพิเศษ ใช้ต่อท้ายตัวเลข เช่น "4.7 ★" */
+.icon-xs {
+  font-size: 0.7rem;
+}
+
+/* ไอคอนใหญ่ในกล่องสถานะว่าง (ไม่พบผลลัพธ์) */
+.icon-empty {
+  font-size: 2.5rem;
+}
+
+/* ลิงก์สีแดง มศว ไม่มีเส้นใต้ เช่น "ดูรีวิวทั้งหมด →" */
+.link-cr {
+  color: var(--cr-primary);
+  text-decoration: none;
+}
+
+.link-cr:hover {
+  color: var(--cr-primary-dark);
+  text-decoration: underline;
+}
+
+/* เส้นคั่นให้ใช้สีขอบตามธีม แทนสีเทาเริ่มต้นของ Bootstrap */
+.hr-cr {
+  border-color: var(--cr-border);
+}
+
+/* จำกัดความกว้างย่อหน้าให้อ่านง่าย */
+.text-narrow {
+  max-width: 320px;
+}
+
+.text-narrow-lg {
+  max-width: 520px;
+}
+
+/* ย่อหน้าที่ต้องการระยะห่างบรรทัดมากกว่าปกติ (ข้อความยาว ๆ) */
+.leading-loose {
+  line-height: 1.9;
+}
+
+/* ---------- 3. ปุ่มของเว็บ ---------- */
+.btn-cr {
+  background-color: var(--cr-primary);
+  border: 0;
+  color: #fff;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.btn-cr:hover,
+.btn-cr:focus {
+  background-color: var(--cr-primary-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-cr-outline {
+  border: 1.5px solid var(--cr-border);
+  color: var(--cr-text);
+  background: transparent;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 600;
+}
+
+.btn-cr-outline:hover {
+  border-color: var(--cr-primary);
+  color: var(--cr-primary);
+}
+
+/* ---------- 4. Navbar ---------- */
+.cr-navbar {
+  background-color: var(--cr-surface);
+  border-bottom: 1px solid var(--cr-border);
+  backdrop-filter: blur(8px);
+}
+
+.cr-navbar .nav-link {
+  color: var(--cr-muted);
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.cr-navbar .nav-link:hover,
+.cr-navbar .nav-link.active {
+  color: var(--cr-primary);
+  background-color: var(--cr-primary-soft);
+}
+
+/* โลโก้ SWU CLASSMATE (ไฟล์ภาพ แทนไอคอน + ข้อความเดิม)
+   กำหนดความสูงอย่างเดียว ปล่อยความกว้างให้คำนวณตามสัดส่วนของภาพ */
+.brand-logo {
+  display: block;
+  height: 50px;
+  width: auto;
+}
+
+/* ในฟุตเตอร์มีที่ว่างมากกว่า จึงแสดงใหญ่ขึ้นได้ */
+.brand-logo-lg {
+  height: 58px;
+}
+
+/* navbar-brand ของ Bootstrap มี padding แนวตั้งติดมา ตัดออกเพื่อไม่ให้ navbar สูงเกิน */
+.cr-navbar .navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#themeToggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--cr-border);
+  background: transparent;
+  color: var(--cr-text);
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  position: relative;
+  padding: 88px 0 72px;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 400px at 15% -10%, rgba(218, 33, 40, 0.14), transparent 60%),
+    radial-gradient(700px 400px at 90% 10%, rgba(99, 100, 102, 0.18), transparent 60%);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.25;
+  /* เกลี่ยความยาวแต่ละบรรทัดให้ใกล้เคียงกัน กันไม่ให้เหลือคำเดียวโดดบรรทัดสุดท้าย
+     เบราว์เซอร์รุ่นเก่าที่ไม่รองรับจะตัดบรรทัดแบบปกติ ไม่พัง */
+  text-wrap: balance;
+}
+
+/* เน้นคำในหัวข้อใหญ่ด้วยสีแดง มศว */
+.hero .highlight {
+  color: var(--cr-primary);
+}
+
+.hero-search {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: 999px;
+  box-shadow: var(--cr-shadow);
+  padding: 8px 8px 8px 22px;
+}
+
+.hero-search input {
+  border: 0;
+  background: transparent;
+  color: var(--cr-text);
+  box-shadow: none !important;
+}
+
+.hero-search input::placeholder {
+  color: var(--cr-muted);
+}
+
+.chip {
+  display: inline-block;
+  border: 1px solid var(--cr-border);
+  background-color: var(--cr-surface);
+  color: var(--cr-muted);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.chip:hover {
+  border-color: var(--cr-primary);
+  color: var(--cr-primary);
+}
+
+/* การ์ดลอยในหน้า Hero */
+.hero-card {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  box-shadow: var(--cr-shadow);
+  padding: 22px;
+}
+
+.float-slow {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* ---------- 6. แถบสถิติ ---------- */
+.stat-box {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 26px 20px;
+  height: 100%;
+  text-align: center;
+}
+
+.stat-box i {
+  font-size: 1.6rem;
+  color: var(--cr-primary);
+}
+
+.stat-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin: 8px 0 2px;
+}
+
+/* ---------- 7. การ์ดรายวิชา ---------- */
+.course-card {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--cr-shadow);
+}
+
+.course-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #da2128, #ef5b60);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* สีพื้นการ์ด 3 แบบ ใส่คลาสเพิ่มที่ .course-thumb ได้เลย */
+.thumb-gray {
+  background: linear-gradient(135deg, #636466, #96979a);
+}
+
+.thumb-dark {
+  background: linear-gradient(135deg, #8f1519, #c73a40);
+}
+
+.course-thumb .cat-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.course-body {
+  padding: 18px 20px 20px;
+}
+
+.course-code {
+  font-size: 0.8rem;
+  color: var(--cr-muted);
+  letter-spacing: 0.06em;
+}
+
+.course-name {
+  font-size: 1.05rem;
+  margin: 2px 0 8px;
+}
+
+.tag-pill {
+  background-color: var(--cr-primary-soft);
+  color: var(--cr-primary);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ---------- 8. ดาวให้คะแนน (CSS ล้วน) ---------- */
+.stars {
+  --pct: 0%;
+  display: inline-block;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--cr-border);
+  letter-spacing: 2px;
+}
+
+.stars::before {
+  content: "★★★★★";
+}
+
+.stars::after {
+  content: "★★★★★";
+  position: absolute;
+  inset: 0;
+  width: var(--pct);
+  overflow: hidden;
+  color: var(--cr-accent);
+  white-space: nowrap;
+}
+
+/* ---------- 9. แถบคะแนนย่อย ---------- */
+.score-row {
+  display: grid;
+  grid-template-columns: 88px 1fr 38px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.score-row .progress {
+  height: 8px;
+  background-color: var(--cr-border);
+}
+
+.score-row .progress-bar {
+  background-color: var(--cr-primary);
+}
+
+/* ---------- 10. การ์ดรีวิว ---------- */
+.review-card {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 24px;
+  height: 100%;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #da2128, #f0565c);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.avatar-sm {
+  width: 34px;
+  height: 34px;
+  font-size: 0.85rem;
+}
+
+.review-text {
+  color: var(--cr-muted);
+  line-height: 1.75;
+}
+
+/* ---------- 11. แถบชวนเขียนรีวิว ---------- */
+.cta-band {
+  background: linear-gradient(135deg, #da2128, #f0565c);
+  border-radius: 24px;
+  color: #fff;
+  padding: 48px 40px;
+}
+
+.cta-band .btn-light {
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  color: var(--cr-primary);
+}
+
+/* ---------- 12. Footer ---------- */
+.cr-footer {
+  background-color: var(--cr-surface);
+  border-top: 1px solid var(--cr-border);
+  padding: 56px 0 24px;
+}
+
+.cr-footer a {
+  color: var(--cr-muted);
+  text-decoration: none;
+  display: inline-block;
+  padding: 4px 0;
+}
+
+.cr-footer a:hover {
+  color: var(--cr-primary);
+}
+
+/* ===========================================
+   ส่วนที่ 13-17 ใช้ในหน้า courses.html
+   =========================================== */
+
+/* ---------- 13. หัวหน้าเพจ + Breadcrumb ---------- */
+.page-head {
+  padding: 40px 0 32px;
+  border-bottom: 1px solid var(--cr-border);
+  background:
+    radial-gradient(700px 300px at 10% 0%, rgba(218, 33, 40, 0.1), transparent 60%);
+}
+
+.breadcrumb {
+  --bs-breadcrumb-divider-color: var(--cr-muted);
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+
+.breadcrumb a {
+  color: var(--cr-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--cr-primary);
+}
+
+.breadcrumb-item.active {
+  color: var(--cr-text);
+}
+
+/* ---------- 14. กล่องตัวกรอง (Sidebar) ---------- */
+.filter-panel {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 24px;
+}
+
+/* .filter-title เป็น <legend> ของแต่ละกลุ่มตัวกรอง
+   Bootstrap ตั้ง legend ให้ float: left; width: 100% และตัวใหญ่ ต้องล้างค่าก่อน */
+.filter-title {
+  float: none;
+  width: auto;
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ตัวกรองแต่ละกลุ่มเป็น <fieldset> จึงต้องล้าง margin/padding ที่เบราว์เซอร์ใส่มาให้ */
+.filter-group {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0; /* กัน fieldset ดันคอลัมน์ให้กว้างเกิน grid */
+}
+
+.filter-group + .filter-group {
+  border-top: 1px solid var(--cr-border);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.filter-panel .form-check {
+  margin-bottom: 8px;
+}
+
+.filter-panel .form-check-label {
+  font-size: 0.9rem;
+  color: var(--cr-muted);
+  cursor: pointer;
+}
+
+.filter-panel .form-check-input {
+  border-color: var(--cr-border);
+  cursor: pointer;
+}
+
+.filter-panel .form-check-input:checked {
+  background-color: var(--cr-primary);
+  border-color: var(--cr-primary);
+}
+
+.filter-panel .form-check-input:focus {
+  box-shadow: 0 0 0 3px var(--cr-primary-soft);
+  border-color: var(--cr-primary);
+}
+
+/* ช่องค้นหาในกล่องตัวกรอง */
+.filter-search {
+  border: 1px solid var(--cr-border);
+  background-color: var(--cr-bg);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.filter-search input {
+  border: 0;
+  background: transparent;
+  color: var(--cr-text);
+  font-size: 0.9rem;
+  box-shadow: none !important;
+  padding: 0;
+}
+
+/* ป้ายข้อมูลย่อยบนการ์ด (รูปแบบเรียน / ภาษา / หน่วยกิต) */
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--cr-border);
+  color: var(--cr-muted);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.meta-badge i {
+  font-size: 0.8rem;
+}
+
+/* สีเน้นตามรูปแบบการเรียน */
+.meta-badge.is-online {
+  border-color: var(--cr-primary);
+  color: var(--cr-primary);
+}
+
+/* ---------- 15. แถบเครื่องมือด้านบนรายการ ---------- */
+.toolbar {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 14px 20px;
+}
+
+.sort-select {
+  border: 1px solid var(--cr-border);
+  background-color: var(--cr-bg);
+  color: var(--cr-text);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  width: auto;
+}
+
+.sort-select:focus {
+  border-color: var(--cr-primary);
+  box-shadow: 0 0 0 3px var(--cr-primary-soft);
+}
+
+/* ---------- 16. การ์ดวิชาแบบแถวนอน ---------- */
+.course-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-row:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--cr-shadow);
+}
+
+.course-row .row-thumb {
+  background: linear-gradient(135deg, #da2128, #ef5b60);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 12px;
+  text-align: center;
+}
+
+/* เขียนซ้ำเพื่อให้ชนะ .course-row .row-thumb ด้านบน */
+.course-row .row-thumb.thumb-gray {
+  background: linear-gradient(135deg, #636466, #96979a);
+}
+
+.course-row .row-thumb.thumb-dark {
+  background: linear-gradient(135deg, #8f1519, #c73a40);
+}
+
+.row-thumb .row-code {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.row-thumb .row-score {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.row-thumb .row-count {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.course-row .row-body {
+  padding: 20px 24px;
+}
+
+/* คะแนนย่อยแบบเรียงแนวนอน 3 ช่อง */
+.mini-scores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 14px 0;
+}
+
+.mini-scores .progress {
+  height: 6px;
+  background-color: var(--cr-border);
+}
+
+.mini-scores .progress-bar {
+  background-color: var(--cr-primary);
+}
+
+.mini-label {
+  font-size: 0.75rem;
+  color: var(--cr-muted);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+/* ---------- 17. Pagination ---------- */
+.pagination {
+  --bs-pagination-color: var(--cr-muted);
+  --bs-pagination-bg: var(--cr-surface);
+  --bs-pagination-border-color: var(--cr-border);
+  --bs-pagination-hover-color: var(--cr-primary);
+  --bs-pagination-hover-bg: var(--cr-primary-soft);
+  --bs-pagination-hover-border-color: var(--cr-border);
+  --bs-pagination-active-bg: var(--cr-primary);
+  --bs-pagination-active-border-color: var(--cr-primary);
+  --bs-pagination-focus-box-shadow: 0 0 0 3px var(--cr-primary-soft);
+  --bs-pagination-disabled-bg: var(--cr-surface);
+  --bs-pagination-disabled-border-color: var(--cr-border);
+}
+
+.pagination .page-link {
+  border-radius: 10px;
+  margin: 0 3px;
+}
+
+/* ===========================================
+   ส่วนที่ 18-22 ใช้ในหน้า course-detail.html
+   =========================================== */
+
+/* ---------- 18. หัวหน้ารายละเอียดวิชา ---------- */
+.detail-head {
+  padding: 32px 0 40px;
+  border-bottom: 1px solid var(--cr-border);
+  background:
+    radial-gradient(800px 340px at 12% 0%, rgba(218, 33, 40, 0.12), transparent 62%);
+}
+
+.detail-code {
+  display: inline-block;
+  background-color: var(--cr-primary);
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+
+.detail-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  margin: 12px 0 10px;
+}
+
+.meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  color: var(--cr-muted);
+  font-size: 0.9rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* กล่องคะแนนรวมด้านขวา */
+.score-card {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  box-shadow: var(--cr-shadow);
+  padding: 24px;
+  text-align: center;
+}
+
+.score-big {
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--cr-primary);
+}
+
+/* กราฟแท่งสัดส่วนดาว */
+.dist-row {
+  display: grid;
+  grid-template-columns: 38px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--cr-muted);
+  margin-bottom: 6px;
+}
+
+.dist-row .progress {
+  height: 7px;
+  background-color: var(--cr-border);
+}
+
+.dist-row .progress-bar {
+  background-color: var(--cr-accent);
+}
+
+/* ---------- 19. แท็บ ---------- */
+.cr-tabs {
+  border-bottom: 1px solid var(--cr-border);
+  gap: 4px;
+}
+
+.cr-tabs .nav-link {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: var(--cr-muted);
+  font-weight: 500;
+  padding: 12px 18px;
+}
+
+.cr-tabs .nav-link:hover {
+  color: var(--cr-primary);
+}
+
+.cr-tabs .nav-link.active {
+  background: transparent;
+  color: var(--cr-primary);
+  border-bottom-color: var(--cr-primary);
+}
+
+/* ---------- 20. กล่องเนื้อหาทั่วไป ---------- */
+.panel {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 28px;
+}
+
+.panel + .panel {
+  margin-top: 24px;
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* รายการสิ่งที่ได้เรียน */
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  color: var(--cr-muted);
+  font-size: 0.92rem;
+}
+
+.check-list li::before {
+  content: "\F26A"; /* ไอคอน bi-check-circle-fill ของ Bootstrap Icons */
+  font-family: "bootstrap-icons";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--cr-primary);
+}
+
+/* ตารางข้อมูลด้านข้าง */
+.info-list {
+  --bs-list-group-bg: transparent;
+  --bs-list-group-border-color: var(--cr-border);
+  --bs-list-group-color: var(--cr-text);
+}
+
+.info-list .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 0.9rem;
+  border-left: 0;
+  border-right: 0;
+}
+
+.info-list .list-group-item:first-child {
+  border-top: 0;
+}
+
+.info-list .list-group-item:last-child {
+  border-bottom: 0;
+}
+
+.info-list dt {
+  color: var(--cr-muted);
+  font-weight: 400;
+}
+
+.info-list dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ---------- 21. Accordion (คำถามที่พบบ่อย) ---------- */
+.cr-accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-color: var(--cr-text);
+  --bs-accordion-border-color: var(--cr-border);
+  --bs-accordion-btn-color: var(--cr-text);
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-active-color: var(--cr-primary);
+  --bs-accordion-active-bg: var(--cr-primary-soft);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 3px var(--cr-primary-soft);
+  --bs-accordion-body-color: var(--cr-muted);
+  --bs-accordion-border-radius: 12px;
+}
+
+.cr-accordion .accordion-button {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.cr-accordion .accordion-body {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+/* ---------- 22. รีวิวในหน้ารายละเอียด ---------- */
+.review-item {
+  border-bottom: 1px solid var(--cr-border);
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+
+.review-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.helpful-btn {
+  border: 1px solid var(--cr-border);
+  background: transparent;
+  color: var(--cr-muted);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
+}
+
+.helpful-btn:hover {
+  border-color: var(--cr-primary);
+  color: var(--cr-primary);
+}
+
+/* วิชาใกล้เคียงในแถบข้าง */
+.related-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cr-border);
+  text-decoration: none;
+  color: inherit;
+}
+
+.related-item:last-child {
+  border-bottom: 0;
+}
+
+.related-item:hover .related-name {
+  color: var(--cr-primary);
+}
+
+.related-badge {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #da2128, #ef5b60);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.related-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* แถบข้างที่ลอยตามตอนเลื่อน */
+@media (min-width: 992px) {
+  .sticky-side {
+    position: sticky;
+    top: 90px;
+  }
+}
+
+/* ---------- 23. ฟอร์มเขียนรีวิว ---------- */
+/* บังคับให้ช่องกรอกทุกชนิดใช้สีตามธีมของเว็บ (ทั้งโหมดสว่างและมืด) */
+.cr-form .form-control,
+.cr-form .form-select {
+  background-color: var(--cr-bg);
+  border-color: var(--cr-border);
+  color: var(--cr-text);
+  padding: 10px 14px;
+  font-size: 0.92rem;
+}
+
+.cr-form .form-control::placeholder {
+  color: var(--cr-muted);
+  opacity: 0.7;
+}
+
+.cr-form .form-control:focus,
+.cr-form .form-select:focus {
+  background-color: var(--cr-surface);
+  border-color: var(--cr-primary);
+  box-shadow: 0 0 0 3px var(--cr-primary-soft);
+}
+
+.cr-form .form-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.cr-form .form-text {
+  color: var(--cr-muted);
+  font-size: 0.78rem;
+}
+
+.cr-form .form-check-input {
+  border-color: var(--cr-border);
+  cursor: pointer;
+}
+
+.cr-form .form-check-input:checked {
+  background-color: var(--cr-primary);
+  border-color: var(--cr-primary);
+}
+
+.cr-form .form-check-input:focus {
+  border-color: var(--cr-primary);
+  box-shadow: 0 0 0 3px var(--cr-primary-soft);
+}
+
+/* legend ของกลุ่มย่อยข้างใน (กลุ่มดาว / กลุ่มแท็ก)
+   ให้หน้าตาเหมือน .form-label ไม่ใช่หัวข้อขั้นตอนใหญ่ */
+.cr-form legend.legend-sm {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* fieldset + legend: แบ่งฟอร์มเป็นขั้นตอน */
+.cr-form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.cr-form legend {
+  float: none; /* ล้างค่า default ของ Bootstrap ที่ทำให้ legend กว้างเต็มแถว */
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.step-num {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--cr-primary);
+  color: #fff;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* แถบเลื่อนให้คะแนน (input type="range") */
+.cr-form .form-range::-webkit-slider-thumb {
+  background-color: var(--cr-primary);
+}
+
+.cr-form .form-range::-moz-range-thumb {
+  background-color: var(--cr-primary);
+}
+
+.cr-form .form-range::-webkit-slider-runnable-track {
+  background-color: var(--cr-border);
+}
+
+.cr-form .form-range::-moz-range-track {
+  background-color: var(--cr-border);
+}
+
+/* กล่องตัวเลขที่แสดงค่าของแถบเลื่อน (tag <output>) */
+.range-out {
+  min-width: 46px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--cr-primary);
+  background-color: var(--cr-primary-soft);
+  border-radius: 8px;
+  padding: 2px 8px;
+}
+
+/* กลุ่มปุ่มเลือก (ดาวให้คะแนน + แท็ก) ใช้ radio/checkbox จริงแต่ซ่อนวงกลมไว้ */
+.pick-group {
+  position: relative; /* ยึดตำแหน่งให้ input ที่ซ่อนไว้ ไม่หลุดออกไปที่อื่น */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pick-group input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pick-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--cr-border);
+  background-color: var(--cr-bg);
+  color: var(--cr-muted);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.pick-group label:hover {
+  border-color: var(--cr-primary);
+  color: var(--cr-primary);
+}
+
+.pick-group input:checked + label {
+  background-color: var(--cr-primary);
+  border-color: var(--cr-primary);
+  color: #fff;
+}
+
+.pick-group input:focus-visible + label {
+  box-shadow: 0 0 0 3px var(--cr-primary-soft);
+}
+
+/* ตัวนับจำนวนตัวอักษรใต้ textarea */
+.char-count {
+  font-size: 0.78rem;
+  color: var(--cr-muted);
+}
+
+.char-count.is-over {
+  color: var(--cr-primary);
+  font-weight: 600;
+}
+
+/* กล่องคำแนะนำด้านข้าง */
+.tip-box {
+  background-color: var(--cr-primary-soft);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 20px;
+}
+
+/* ---------- 24. หน้าจัดอันดับ ---------- */
+/* แท่นรับรางวัล 3 อันดับแรก */
+.podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: end;
+}
+
+.podium-item {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 24px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* อันดับ 1 ให้เด่นกว่าเพื่อน: สูงกว่า + กรอบสีแดง มศว */
+.podium-item.is-first {
+  padding-top: 34px;
+  padding-bottom: 34px;
+  border-color: var(--cr-primary);
+  box-shadow: var(--cr-shadow);
+}
+
+.podium-medal {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: var(--cr-gray);
+}
+
+.podium-item.is-first .podium-medal {
+  background-color: var(--cr-accent);
+  width: 56px;
+  height: 56px;
+  font-size: 1.3rem;
+}
+
+.podium-code {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--cr-primary);
+  font-weight: 600;
+}
+
+.podium-name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 6px 0 10px;
+  line-height: 1.45;
+}
+
+.podium-score {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ตารางอันดับ */
+.rank-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--cr-text);
+  --bs-table-border-color: var(--cr-border);
+  --bs-table-hover-bg: var(--cr-primary-soft);
+  --bs-table-hover-color: var(--cr-text);
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.rank-table thead th {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  border-bottom-width: 1px;
+}
+
+.rank-table td,
+.rank-table th {
+  padding: 14px 12px;
+  vertical-align: middle;
+}
+
+.rank-table caption {
+  caption-side: top;
+  color: var(--cr-muted);
+  font-size: 0.85rem;
+  padding: 0 12px 14px;
+}
+
+/* ตัวเลขอันดับในตาราง */
+.rank-no {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background-color: var(--cr-bg);
+  border: 1px solid var(--cr-border);
+  color: var(--cr-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3 อันดับแรกใช้สีทองและสีแดง มศว */
+.rank-no.top-1 {
+  background-color: var(--cr-accent);
+  border-color: var(--cr-accent);
+  color: #fff;
+}
+
+.rank-no.top-2,
+.rank-no.top-3 {
+  background-color: var(--cr-primary-soft);
+  border-color: var(--cr-primary);
+  color: var(--cr-primary);
+}
+
+.rank-course {
+  font-weight: 600;
+  color: var(--cr-text);
+  text-decoration: none;
+  display: block;
+  line-height: 1.4;
+}
+
+.rank-course:hover {
+  color: var(--cr-primary);
+}
+
+.rank-course small {
+  display: block;
+  font-weight: 400;
+  color: var(--cr-muted);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.rank-value {
+  font-weight: 700;
+  color: var(--cr-primary);
+  white-space: nowrap;
+}
+
+/* รายการอันดับ 1 ของแต่ละหมวดใน sidebar */
+.cat-rank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cr-border);
+  text-decoration: none;
+}
+
+.cat-rank:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cat-rank-icon {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--cr-primary-soft);
+  color: var(--cr-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-rank-body {
+  min-width: 0;
+}
+
+.cat-rank-label {
+  font-size: 0.75rem;
+  color: var(--cr-muted);
+  margin-bottom: 2px;
+}
+
+.cat-rank-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cr-text);
+  line-height: 1.35;
+}
+
+/* ---------- 25. หน้าทดลองจัดอันดับ ---------- */
+/* แถวรายวิชาในคลังให้เลือก */
+.pick-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--cr-border);
+}
+
+.pick-row:last-child {
+  border-bottom: 0;
+}
+
+/* ซ่อนแถวที่ถูกเลือกเข้าอันดับไปแล้ว */
+.pick-row.is-added {
+  display: none;
+}
+
+.pick-code {
+  flex: none;
+  width: 74px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cr-primary);
+  letter-spacing: 0.04em;
+}
+
+.pick-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.pick-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ปุ่มกลมสำหรับเพิ่มวิชาเข้าอันดับ */
+.btn-add {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--cr-primary);
+  background: transparent;
+  color: var(--cr-primary);
+  display: grid;
+  place-items: center;
+  transition: all 0.15s ease;
+}
+
+.btn-add:hover:not(:disabled) {
+  background-color: var(--cr-primary);
+  color: #fff;
+}
+
+.btn-add:disabled {
+  border-color: var(--cr-border);
+  color: var(--cr-muted);
+  cursor: not-allowed;
+}
+
+/* รายการอันดับที่ผู้ใช้จัด */
+.rank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: rank;
+}
+
+.rank-slot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cr-border);
+}
+
+.rank-slot:last-child {
+  border-bottom: 0;
+}
+
+/* เลขอันดับ นับอัตโนมัติจาก CSS counter จึงไม่ต้องเขียนเลขใน JS */
+.slot-num {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: var(--cr-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+}
+
+.slot-num::before {
+  counter-increment: rank;
+  content: counter(rank);
+}
+
+.slot-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.slot-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.slot-meta {
+  font-size: 0.75rem;
+  color: var(--cr-muted);
+}
+
+/* ปุ่มเลื่อนขึ้น-ลง และ ปุ่มเอาออก */
+.slot-btn {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  border: 1px solid var(--cr-border);
+  background: transparent;
+  color: var(--cr-muted);
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+}
+
+.slot-btn:hover:not(:disabled) {
+  border-color: var(--cr-primary);
+  color: var(--cr-primary);
+}
+
+.slot-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* แถบความคืบหน้าจำนวนอันดับที่เลือก */
+.rank-counter {
+  font-size: 0.85rem;
+  color: var(--cr-muted);
+}
+
+.rank-counter strong {
+  color: var(--cr-primary);
+  font-size: 1.1rem;
+}
+
+/* ขั้นตอนการใช้งาน 3 ขั้น */
+.step-card {
+  height: 100%;
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
+  padding: 24px 20px;
+}
+
+.step-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--cr-primary-soft);
+  color: var(--cr-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+/* ---------- 26. Responsive ---------- */
+@media (max-width: 991.98px) {
+  .course-row {
+    grid-template-columns: 120px 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section { padding: 48px 0; }
+  .hero { padding: 56px 0 40px; }
+  .cta-band { padding: 32px 24px; text-align: center; }
+  .float-slow { animation: none; }
+
+  /* การ์ดแถวนอน เปลี่ยนเป็นแนวตั้งบนมือถือ */
+  .course-row {
+    grid-template-columns: 1fr;
+  }
+
+  .course-row .row-thumb {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 14px 20px;
+  }
+
+  .row-thumb .row-score {
+    font-size: 1.4rem;
+  }
+
+  .mini-scores {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* แท่นรับรางวัลบนมือถือ เรียงเป็นแนวตั้ง */
+  .podium {
+    grid-template-columns: 1fr;
+  }
+
+  .podium-item.is-first {
+    order: -1; /* ดันอันดับ 1 ขึ้นไปอยู่บนสุด */
+  }
+}
