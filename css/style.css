@@ -34,6 +34,10 @@
 
   /* แผ่นทึบทับบนรูป (ใช้กับป้ายหมวดหมู่) */
   --cr-overlay: rgba(0, 0, 0, 0.35);
+
+  /* ชี้ตัวแปรของ Bootstrap มาที่สีของเรา
+     จะได้ใช้ utility ของ Bootstrap ได้เลย ไม่ต้องเขียนคลาสเอง */
+  --bs-secondary-color: var(--cr-muted);
 }
 
 [data-bs-theme="dark"] {
@@ -60,6 +64,8 @@
   --cr-glow-gray: rgba(155, 156, 158, 0.12);
 
   --cr-overlay: rgba(0, 0, 0, 0.5);
+
+  --bs-secondary-color: var(--cr-muted);
 }
 
 /* ---------- 2. พื้นฐานทั้งเว็บ ---------- */
@@ -78,6 +84,22 @@ body {
 .container {
   width: 1140px;
   max-width: 1140px;
+}
+
+/* กล่องพื้นฐานของเว็บ - ใช้ร่วมกัน 9 ที่
+   แยก 3 บรรทัดนี้ออกมาไว้ที่เดียว จะได้ไม่ต้องเขียนซ้ำในทุกกล่อง */
+.hero-card,
+.stat-box,
+.review-card,
+.filter-panel,
+.toolbar,
+.score-card,
+.panel,
+.podium-item,
+.step-card {
+  background-color: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius);
 }
 
 h1, h2, h3, h4, .navbar-brand {
@@ -99,23 +121,14 @@ h1, h2, h3, h4, .navbar-brand {
   margin-bottom: 40px;
 }
 
-.text-muted-cr {
-  color: var(--cr-muted) !important;
-}
-
-/* ไอคอนสีแดง มศว */
-.icon-cr {
+/* ข้อความหรือไอคอนสีแดง มศว */
+.text-cr {
   color: var(--cr-primary);
 }
 
 /* ไอคอนขนาดเล็กพิเศษ ใช้ต่อท้ายตัวเลข เช่น "4.7 ★" */
 .icon-xs {
   font-size: 0.7rem;
-}
-
-/* ไอคอนใหญ่ในกล่องสถานะว่าง (ไม่พบผลลัพธ์) */
-.icon-empty {
-  font-size: 2.5rem;
 }
 
 /* ลิงก์สีแดง มศว ไม่มีเส้นใต้ เช่น "ดูรีวิวทั้งหมด →" */
@@ -143,10 +156,6 @@ h1, h2, h3, h4, .navbar-brand {
   max-width: 520px;
 }
 
-/* ย่อหน้าที่ต้องการระยะห่างบรรทัดมากกว่าปกติ (ข้อความยาว ๆ) */
-.leading-loose {
-  line-height: 1.9;
-}
 
 /* ---------- 3. ปุ่มของเว็บ ---------- */
 .btn-cr {
@@ -242,11 +251,6 @@ h1, h2, h3, h4, .navbar-brand {
   line-height: 1.25;
 }
 
-/* เน้นคำในหัวข้อใหญ่ด้วยสีแดง มศว */
-.hero .highlight {
-  color: var(--cr-primary);
-}
-
 .hero-search {
   background-color: var(--cr-surface);
   border: 1px solid var(--cr-border);
@@ -285,9 +289,6 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* การ์ดลอยในหน้า Hero */
 .hero-card {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   box-shadow: var(--cr-shadow);
   padding: 22px;
 }
@@ -303,9 +304,6 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* ---------- 6. แถบสถิติ ---------- */
 .stat-box {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   padding: 26px 20px;
   height: 100%;
   text-align: center;
@@ -439,9 +437,6 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* ---------- 10. การ์ดรีวิว ---------- */
 .review-card {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   padding: 24px;
   height: 100%;
 }
@@ -534,9 +529,6 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* ---------- 14. กล่องตัวกรอง (Sidebar) ---------- */
 .filter-panel {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   padding: 24px;
 }
 
@@ -632,9 +624,6 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* ---------- 15. แถบเครื่องมือด้านบนรายการ ---------- */
 .toolbar {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   padding: 14px 20px;
 }
 
@@ -797,9 +786,6 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* กล่องคะแนนรวมด้านขวา */
 .score-card {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   box-shadow: var(--cr-shadow);
   padding: 24px;
   text-align: center;
@@ -859,9 +845,6 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* ---------- 20. กล่องเนื้อหาทั่วไป ---------- */
 .panel {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   padding: 28px;
 }
 
@@ -1223,9 +1206,6 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 .podium-item {
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   padding: 24px 20px;
   text-align: center;
   position: relative;
@@ -1565,9 +1545,6 @@ h1, h2, h3, h4, .navbar-brand {
 /* ขั้นตอนการใช้งาน 3 ขั้น */
 .step-card {
   height: 100%;
-  background-color: var(--cr-surface);
-  border: 1px solid var(--cr-border);
-  border-radius: var(--cr-radius);
   padding: 24px 20px;
 }
 
