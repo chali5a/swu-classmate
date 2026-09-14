@@ -12,7 +12,6 @@
   --cr-primary-soft: rgba(218, 33, 40, 0.08);
   /* สีรอง: เทา มศว */
   --cr-gray: #636466;
-  --cr-gray-dark: #454648;
   --cr-accent: #c8a24a;
 
   --cr-surface: #ffffff;
@@ -22,6 +21,19 @@
   --cr-border: #e5e0e0;
   --cr-shadow: 0 10px 30px rgba(43, 38, 38, 0.1);
   --cr-radius: 16px;
+
+  /* เฉดสีสำหรับไล่สีพื้น (gradient) - ต้องเปลี่ยนตามสีหลักด้วย */
+  --cr-primary-light: #ef5b60;      /* แดงอ่อน ใช้คู่กับแดงหลัก */
+  --cr-primary-deep: #8f1519;       /* แดงเข้ม ใช้กับการ์ดโทนเข้ม */
+  --cr-primary-deep-soft: #c73a40;  /* แดงเข้มแบบอ่อนลง คู่กับตัวบน */
+  --cr-gray-light: #96979a;         /* เทาอ่อน ใช้คู่กับเทาหลัก */
+
+  /* แสงจาง ๆ ที่พื้นหลังส่วนหัวของหน้า */
+  --cr-glow: rgba(218, 33, 40, 0.12);
+  --cr-glow-gray: rgba(99, 100, 102, 0.18);
+
+  /* แผ่นทึบทับบนรูป (ใช้กับป้ายหมวดหมู่) */
+  --cr-overlay: rgba(0, 0, 0, 0.35);
 }
 
 [data-bs-theme="dark"] {
@@ -37,6 +49,17 @@
   --cr-muted: #a49d9d;
   --cr-border: #3a3234;
   --cr-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  /* เฉดสีชุดเดียวกัน แต่ปรับให้สว่างขึ้นเพื่อให้เห็นบนพื้นเข้ม */
+  --cr-primary-light: #f5787d;
+  --cr-primary-deep: #a81f26;
+  --cr-primary-deep-soft: #d94a51;
+  --cr-gray-light: #b5b6b8;
+
+  --cr-glow: rgba(240, 71, 78, 0.16);
+  --cr-glow-gray: rgba(155, 156, 158, 0.12);
+
+  --cr-overlay: rgba(0, 0, 0, 0.5);
 }
 
 /* ---------- 2. พื้นฐานทั้งเว็บ ---------- */
@@ -200,8 +223,8 @@ h1, h2, h3, h4, .navbar-brand {
   padding: 88px 0 72px;
   overflow: hidden;
   background:
-    radial-gradient(900px 400px at 15% -10%, rgba(218, 33, 40, 0.14), transparent 60%),
-    radial-gradient(700px 400px at 90% 10%, rgba(99, 100, 102, 0.18), transparent 60%);
+    radial-gradient(900px 400px at 15% -10%, var(--cr-glow), transparent 60%),
+    radial-gradient(700px 400px at 90% 10%, var(--cr-glow-gray), transparent 60%);
 }
 
 .hero h1 {
@@ -310,7 +333,7 @@ h1, h2, h3, h4, .navbar-brand {
 .course-thumb {
   position: relative;
   aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, #da2128, #ef5b60);
+  background: linear-gradient(135deg, var(--cr-primary), var(--cr-primary-light));
   display: grid;
   place-items: center;
   color: #fff;
@@ -321,18 +344,18 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* สีพื้นการ์ด 3 แบบ ใส่คลาสเพิ่มที่ .course-thumb ได้เลย */
 .thumb-gray {
-  background: linear-gradient(135deg, #636466, #96979a);
+  background: linear-gradient(135deg, var(--cr-gray), var(--cr-gray-light));
 }
 
 .thumb-dark {
-  background: linear-gradient(135deg, #8f1519, #c73a40);
+  background: linear-gradient(135deg, var(--cr-primary-deep), var(--cr-primary-deep-soft));
 }
 
 .course-thumb .cat-badge {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--cr-overlay);
   border-radius: 999px;
   padding: 4px 12px;
   font-size: 0.75rem;
@@ -420,7 +443,7 @@ h1, h2, h3, h4, .navbar-brand {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #da2128, #f0565c);
+  background: linear-gradient(135deg, var(--cr-primary), var(--cr-primary-light));
   color: #fff;
   display: grid;
   place-items: center;
@@ -440,7 +463,7 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* ---------- 11. แถบชวนเขียนรีวิว ---------- */
 .cta-band {
-  background: linear-gradient(135deg, #da2128, #f0565c);
+  background: linear-gradient(135deg, var(--cr-primary), var(--cr-primary-light));
   border-radius: 24px;
   color: #fff;
   padding: 48px 40px;
@@ -480,7 +503,7 @@ h1, h2, h3, h4, .navbar-brand {
   padding: 40px 0 32px;
   border-bottom: 1px solid var(--cr-border);
   background:
-    radial-gradient(700px 300px at 10% 0%, rgba(218, 33, 40, 0.1), transparent 60%);
+    radial-gradient(700px 300px at 10% 0%, var(--cr-glow), transparent 60%);
 }
 
 .breadcrumb {
@@ -640,7 +663,7 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 .course-row .row-thumb {
-  background: linear-gradient(135deg, #da2128, #ef5b60);
+  background: linear-gradient(135deg, var(--cr-primary), var(--cr-primary-light));
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -653,11 +676,11 @@ h1, h2, h3, h4, .navbar-brand {
 
 /* เขียนซ้ำเพื่อให้ชนะ .course-row .row-thumb ด้านบน */
 .course-row .row-thumb.thumb-gray {
-  background: linear-gradient(135deg, #636466, #96979a);
+  background: linear-gradient(135deg, var(--cr-gray), var(--cr-gray-light));
 }
 
 .course-row .row-thumb.thumb-dark {
-  background: linear-gradient(135deg, #8f1519, #c73a40);
+  background: linear-gradient(135deg, var(--cr-primary-deep), var(--cr-primary-deep-soft));
 }
 
 .row-thumb .row-code {
@@ -735,7 +758,7 @@ h1, h2, h3, h4, .navbar-brand {
   padding: 32px 0 40px;
   border-bottom: 1px solid var(--cr-border);
   background:
-    radial-gradient(800px 340px at 12% 0%, rgba(218, 33, 40, 0.12), transparent 62%);
+    radial-gradient(800px 340px at 12% 0%, var(--cr-glow), transparent 62%);
 }
 
 .detail-code {
@@ -980,7 +1003,7 @@ h1, h2, h3, h4, .navbar-brand {
   height: 46px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: linear-gradient(135deg, #da2128, #ef5b60);
+  background: linear-gradient(135deg, var(--cr-primary), var(--cr-primary-light));
   color: #fff;
   display: grid;
   place-items: center;
