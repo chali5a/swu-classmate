@@ -1,4 +1,12 @@
+<!-- ===========================================
+     SWU CLASSMATE - ฟอร์มเขียนรีวิว
+     โครงสร้าง: ฟอร์ม 4 ขั้นตอน + กติกาการรีวิว (ขวา)
+     ใช้ JavaScript: main.js + review.js
+     สไตล์ทั้งหมดมาจาก css/style.css (ไฟล์เดียวใช้ทุกหน้า)
+     =========================================== -->
 <!DOCTYPE html>
+<!-- lang="th" บอกว่าหน้านี้เป็นภาษาไทย (ช่วยเรื่องการอ่านออกเสียงและการค้นหา)
+     data-bs-theme คือสวิตช์ธีมของ Bootstrap 5.3 — js/main.js จะเปลี่ยนค่านี้เป็น "dark" ตอนกดปุ่มสลับธีม -->
 <html lang="th" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +29,8 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#da2128" />
 
-  <!-- CSS ภายนอกที่เขียนเอง -->
+  <!-- CSS ที่เขียนเอง ต้องอยู่ "หลัง" Bootstrap เสมอ
+       เพราะถ้า specificity เท่ากัน ไฟล์ที่มาทีหลังจะชนะ ถ้าสลับลำดับสีของเราจะโดน Bootstrap ทับ -->
   <link href="css/style.css" rel="stylesheet" />
 </head>
 
@@ -46,6 +55,8 @@
         </ul>
 
         <div class="d-flex align-items-center gap-2">
+          <!-- ปุ่มสลับโหมดสว่าง/มืด — js/main.js ผูก event ไว้ที่ id นี้
+               aria-label จำเป็น เพราะข้างในมีแต่ไอคอน ไม่มีข้อความให้อ่าน -->
           <button id="themeToggle" type="button" aria-label="สลับโหมดสว่าง/มืด">
             <i class="bi bi-moon-stars"></i>
           </button>
@@ -98,6 +109,9 @@
           </div>
 
           <!-- novalidate = ปิดข้อความเตือนของเบราว์เซอร์ แล้วใช้สไตล์ของ Bootstrap แทน -->
+          <!-- novalidate = ปิดกล่องเตือนของเบราว์เซอร์ (ที่เป็นภาษาอังกฤษและหน้าตาไม่เข้ากับเว็บ)
+               แต่ "ไม่ได้ปิดการตรวจ" — js/review.js ยังเรียก checkValidity() ตรวจเองได้
+               needs-validation เป็นเพียงชื่อที่ Bootstrap ใช้เรียกฟอร์มแบบนี้ ไม่มีสไตล์ในตัว -->
           <form class="cr-form needs-validation" id="reviewForm" novalidate>
 
             <!-- ===== ขั้นที่ 1: ข้อมูลวิชา ===== -->
@@ -112,6 +126,9 @@
                     <input type="text" class="form-control" id="courseCode" name="courseCode"
                            placeholder="SWU 356" pattern="[A-Za-z]{2,4}\s?[0-9]{3}[A-Za-z]?"
                            required />
+                    <!-- form-text     = คำอธิบายสีจาง แสดงตลอดเวลา
+                         invalid-feedback = ข้อความเตือน ซ่อนไว้จนกว่าช่องนี้จะกรอกผิด
+                         Bootstrap จะโชว์ให้เองเมื่อฟอร์มมีคลาส was-validated (js/review.js เป็นคนใส่) -->
                     <div class="form-text">รูปแบบ: ตัวอักษร 2-4 ตัว ตามด้วยตัวเลข 3 หลัก</div>
                     <div class="invalid-feedback">กรุณากรอกรหัสวิชาให้ถูกรูปแบบ เช่น SWU 356</div>
                   </div>
@@ -205,6 +222,8 @@
                   <legend class="legend-sm">คะแนนรวม <span class="text-danger">*</span></legend>
 
                   <div class="pick-group">
+                    <!-- ดาวให้คะแนนเป็น radio จริง ๆ แต่ CSS ซ่อนวงกลมไว้แล้วจัดสไตล์ <label> ให้เป็นปุ่มแทน
+                         ข้อดีคือใช้คีย์บอร์ดเลือกได้ และฟอร์มตรวจ required ได้ตามปกติ -->
                     <input type="radio" name="overall" value="5" id="star5" required />
                     <label for="star5"><i class="bi bi-star-fill"></i> 5 · ดีมาก</label>
 
@@ -230,6 +249,8 @@
                     <label for="scoreContent" class="form-label mb-0">
                       <i class="bi bi-book me-1"></i> เนื้อหาน่าสนใจ
                     </label>
+                    <!-- <output> เป็นแท็กที่มีไว้แสดง "ผลลัพธ์" โดยเฉพาะ
+                         for="scoreContent" ผูกกับแถบเลื่อนด้านล่าง — js/review.js อัปเดตตัวเลขนี้ทุกครั้งที่ลาก -->
                     <output class="range-out" id="outContent" for="scoreContent">70</output>
                   </div>
                   <input type="range" class="form-range" id="scoreContent" name="scoreContent"
@@ -483,6 +504,8 @@
 
       <hr class="my-4 hr-cr" />
       <p class="text-center text-body-secondary small mb-0">
+        <!-- span ว่างเปล่า รอ js/main.js เติมปี พ.ศ. ให้ตอนโหลดหน้า
+             ทำแบบนี้เพื่อไม่ต้องไล่แก้ปีใน 6 ไฟล์ทุกปี -->
         &copy; <span id="year"></span> SWU CLASSMATE · จัดทำเพื่อการศึกษา ไม่ใช่เว็บไซต์ทางการของมหาวิทยาลัย
       </p>
 

@@ -1,4 +1,12 @@
+<!-- ===========================================
+     SWU CLASSMATE - หน้าแรก
+     โครงสร้าง: Hero + ค้นหา · แถบสถิติ · วิชายอดนิยม 3 ใบ · วิธีใช้งาน · รีวิวล่าสุด
+     ใช้ JavaScript: main.js
+     สไตล์ทั้งหมดมาจาก css/style.css (ไฟล์เดียวใช้ทุกหน้า)
+     =========================================== -->
 <!DOCTYPE html>
+<!-- lang="th" บอกว่าหน้านี้เป็นภาษาไทย (ช่วยเรื่องการอ่านออกเสียงและการค้นหา)
+     data-bs-theme คือสวิตช์ธีมของ Bootstrap 5.3 — js/main.js จะเปลี่ยนค่านี้เป็น "dark" ตอนกดปุ่มสลับธีม -->
 <html lang="th" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +29,8 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#da2128" />
 
-  <!-- CSS ภายนอกที่เขียนเอง -->
+  <!-- CSS ที่เขียนเอง ต้องอยู่ "หลัง" Bootstrap เสมอ
+       เพราะถ้า specificity เท่ากัน ไฟล์ที่มาทีหลังจะชนะ ถ้าสลับลำดับสีของเราจะโดน Bootstrap ทับ -->
   <link href="css/style.css" rel="stylesheet" />
 </head>
 
@@ -39,6 +48,9 @@
 
       <div class="navbar-collapse">
         <ul class="navbar-nav mx-auto gap-1">
+          <!-- active = คลาสของ Bootstrap ใช้ทำสีพื้นหลัง
+               aria-current="page" = บอกโปรแกรมอ่านหน้าจอว่านี่คือหน้าที่กำลังเปิดอยู่
+               ต้องมีทั้งคู่ เพราะทำคนละหน้าที่กัน -->
           <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">หน้าแรก</a></li>
           <li class="nav-item"><a class="nav-link" href="courses.html">วิชาเสรีทั้งหมด</a></li>
           <li class="nav-item"><a class="nav-link" href="ranking.html">จัดอันดับ</a></li>
@@ -46,6 +58,8 @@
         </ul>
 
         <div class="d-flex align-items-center gap-2">
+          <!-- ปุ่มสลับโหมดสว่าง/มืด — js/main.js ผูก event ไว้ที่ id นี้
+               aria-label จำเป็น เพราะข้างในมีแต่ไอคอน ไม่มีข้อความให้อ่าน -->
           <button id="themeToggle" type="button" aria-label="สลับโหมดสว่าง/มืด">
             <i class="bi bi-moon-stars"></i>
           </button>
@@ -67,11 +81,16 @@
         <div class="col-7">
           <!-- lang="en" บอกว่าท่อนนี้เป็นภาษาอังกฤษ (ทั้งหน้าตั้งเป็น lang="th")
                เพื่อให้โปรแกรมอ่านหน้าจอออกเสียงถูกภาษา -->
+          <!-- lang="en" บอกว่าท่อนนี้เป็นภาษาอังกฤษ (ทั้งหน้าตั้งเป็น lang="th")
+               <br /> บังคับตัดบรรทัดเอง ไม่ปล่อยให้เบราว์เซอร์ตัด จะได้เป็น "Your Classmates / Know Best."
+               .text-cr ทำให้คำว่า Classmates เป็นสีแดง CI -->
           <h1 class="mb-4" lang="en">
             Your <span class="text-cr">Classmates</span><br />
             Know Best.
           </h1>
 
+          <!-- ช่องค้นหา — js/main.js จะกรองการ์ดวิชาด้านล่างแบบสด ๆ ทุกครั้งที่พิมพ์
+               role="search" บอกว่าฟอร์มนี้มีไว้ค้นหา ไม่ใช่ส่งข้อมูล -->
           <form id="searchForm" class="hero-search d-flex align-items-center mb-3" role="search">
             <i class="bi bi-search text-body-secondary me-2"></i>
             <label for="searchInput" class="visually-hidden">ค้นหาวิชาเลือกเสรี</label>
@@ -82,6 +101,7 @@
 
           <div class="d-flex flex-wrap gap-2">
             <span class="text-body-secondary small align-self-center me-1">ยอดฮิต:</span>
+            <!-- data-keyword = คำที่จะถูกใส่ลงช่องค้นหาอัตโนมัติเมื่อคลิก (js/main.js อ่านค่านี้) -->
             <a href="#courses" class="chip" data-keyword="เกรดง่าย">เกรดง่าย</a>
             <a href="#courses" class="chip" data-keyword="ไม่เช็คชื่อ">ไม่เช็คชื่อ</a>
             <a href="#courses" class="chip" data-keyword="งานน้อย">งานน้อย</a>
@@ -206,6 +226,10 @@
 
       <div class="row g-4">
 
+        <!-- การ์ดวิชา 1 ใบ
+             col-4 = กว้าง 4 ช่องจาก 12 ของ Bootstrap = 1 ใน 3 ของแถว (เรียงได้ 3 ใบต่อแถว)
+             data-search อยู่ที่ <div> ชั้นนอก ไม่ใช่ <article> เพราะ js/main.js จะซ่อนด้วยคลาส d-none
+             ถ้าใส่ไว้ที่ <article> ตัวคอลัมน์จะยังกินที่ว่างอยู่ ทำให้เกิดช่องโหว่ในแถว -->
         <!-- การ์ดที่ 1 -->
         <div class="col-4" data-search="SWU 356 การจัดการทางการเงินส่วนบุคคล ธุรกิจ การเงิน อาจารย์สอนสนุก สอบไม่ยาก ได้ความรู้ติดตัว">
           <article class="course-card">
@@ -223,6 +247,9 @@
                 <span class="text-body-secondary small">(428 รีวิว)</span>
               </div>
 
+              <!-- แถบคะแนนของ Bootstrap
+                   Bootstrap 5.3 ย้าย role และ aria-* มาไว้ที่ .progress ตัวนอก (เวอร์ชัน 5.2 อยู่ที่ .progress-bar)
+                   ส่วน style="width: 88%" เป็น inline style ที่ควรมี เพราะเป็นข้อมูลของแต่ละวิชา ไม่ใช่การจัดหน้า -->
               <div class="score-row">
                 <span class="text-body-secondary">เนื้อหา</span>
                 <div class="progress" role="progressbar" aria-label="เนื้อหา"
@@ -372,6 +399,7 @@
       </div>
 
       <!-- แสดงเมื่อค้นหาแล้วไม่เจอ -->
+      <!-- กล่องนี้ซ่อนไว้ด้วย d-none จนกว่าจะค้นหาแล้วไม่เจอวิชา (js/main.js เป็นคนสลับ) -->
       <div id="emptyState" class="text-center text-body-secondary py-5 d-none">
         <i class="bi bi-search fs-1"></i>
         <p class="mt-3 mb-0">ไม่พบวิชาเสรีที่ค้นหา ลองใช้คำอื่นดูนะ</p>
@@ -565,6 +593,8 @@
 
       <hr class="my-4 hr-cr" />
       <p class="text-center text-body-secondary small mb-0">
+        <!-- span ว่างเปล่า รอ js/main.js เติมปี พ.ศ. ให้ตอนโหลดหน้า
+             ทำแบบนี้เพื่อไม่ต้องไล่แก้ปีใน 6 ไฟล์ทุกปี -->
         &copy; <span id="year"></span> SWU CLASSMATE · จัดทำเพื่อการศึกษา ไม่ใช่เว็บไซต์ทางการของมหาวิทยาลัย
       </p>
 

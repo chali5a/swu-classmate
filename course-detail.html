@@ -1,4 +1,12 @@
+<!-- ===========================================
+     SWU CLASSMATE - รายละเอียดวิชา SWU 356
+     โครงสร้าง: หัวหน้าวิชา + คะแนนรวม · แท็บ 3 แท็บ · แถบข้างที่เลื่อนตาม
+     ใช้ JavaScript: main.js
+     สไตล์ทั้งหมดมาจาก css/style.css (ไฟล์เดียวใช้ทุกหน้า)
+     =========================================== -->
 <!DOCTYPE html>
+<!-- lang="th" บอกว่าหน้านี้เป็นภาษาไทย (ช่วยเรื่องการอ่านออกเสียงและการค้นหา)
+     data-bs-theme คือสวิตช์ธีมของ Bootstrap 5.3 — js/main.js จะเปลี่ยนค่านี้เป็น "dark" ตอนกดปุ่มสลับธีม -->
 <html lang="th" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +29,8 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#da2128" />
 
-  <!-- CSS ภายนอกที่เขียนเอง -->
+  <!-- CSS ที่เขียนเอง ต้องอยู่ "หลัง" Bootstrap เสมอ
+       เพราะถ้า specificity เท่ากัน ไฟล์ที่มาทีหลังจะชนะ ถ้าสลับลำดับสีของเราจะโดน Bootstrap ทับ -->
   <link href="css/style.css" rel="stylesheet" />
 </head>
 
@@ -40,12 +49,17 @@
       <div class="navbar-collapse">
         <ul class="navbar-nav mx-auto gap-1">
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+          <!-- active = คลาสของ Bootstrap ใช้ทำสีพื้นหลัง
+               aria-current="page" = บอกโปรแกรมอ่านหน้าจอว่านี่คือหน้าที่กำลังเปิดอยู่
+               ต้องมีทั้งคู่ เพราะทำคนละหน้าที่กัน -->
           <li class="nav-item"><a class="nav-link active" href="courses.html" aria-current="true">วิชาเสรีทั้งหมด</a></li>
           <li class="nav-item"><a class="nav-link" href="ranking.html">จัดอันดับ</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">ทดลองจัดอันดับ</a></li>
         </ul>
 
         <div class="d-flex align-items-center gap-2">
+          <!-- ปุ่มสลับโหมดสว่าง/มืด — js/main.js ผูก event ไว้ที่ id นี้
+               aria-label จำเป็น เพราะข้างในมีแต่ไอคอน ไม่มีข้อความให้อ่าน -->
           <button id="themeToggle" type="button" aria-label="สลับโหมดสว่าง/มืด">
             <i class="bi bi-moon-stars"></i>
           </button>
@@ -170,6 +184,12 @@
         <!-- ---------- คอลัมน์ซ้าย ---------- -->
         <div class="col-8">
 
+          <!-- แท็บของ Bootstrap — ไม่ต้องเขียน JavaScript เองเลยสักบรรทัด
+               data-bs-toggle="tab"   บอก Bootstrap ว่าปุ่มนี้เป็นปุ่มแท็บ
+               data-bs-target="#..."  ชี้ว่ากดแล้วให้โชว์แผงไหน
+               aria-controls          บอกโปรแกรมอ่านหน้าจอว่าปุ่มนี้คุมแผงไหน
+               aria-selected          ตอนนี้เลือกอยู่ไหม (Bootstrap อัปเดตให้เอง)
+               ฝั่งแผงเนื้อหาใช้ aria-labelledby ชี้กลับมาที่ปุ่ม เป็นการจับคู่กันสองทาง -->
           <!-- แท็บ -->
           <ul class="nav cr-tabs mb-4" role="tablist">
             <li class="nav-item" role="presentation">
@@ -458,6 +478,9 @@
               <div class="panel">
                 <h2 class="panel-title">คำถามที่พบบ่อย</h2>
 
+                <!-- data-bs-parent ที่แต่ละแผงคือกุญแจของ accordion
+                     มันบอกว่า "ฉันอยู่ในกลุ่มนี้" ผลคือพอเปิดอันใหม่ อันเก่าจะปิดเอง
+                     ถ้าเอา data-bs-parent ออก จะเปิดค้างได้หลายอันพร้อมกัน -->
                 <div class="accordion cr-accordion" id="faqAccordion">
 
                   <div class="accordion-item">
@@ -541,6 +564,10 @@
             <div class="panel">
               <h2 class="panel-title">ข้อมูลรายวิชา</h2>
 
+              <!-- ใช้ <dl> (description list) เพราะข้อมูลเป็นคู่ "หัวข้อ - ค่า"
+                   <dt> = คำที่อธิบาย (รหัสวิชา) · <dd> = ค่าของมัน (SWU 356)
+                   การเอา <div> มาครอบแต่ละคู่เป็นรูปแบบที่ Bootstrap แนะนำสำหรับ list-group
+                   และถูกต้องตามสเปก HTML5 -->
               <dl class="list-group list-group-flush info-list mb-0">
                 <div class="list-group-item">
                   <dt>รหัสวิชา</dt>
@@ -707,6 +734,8 @@
 
       <hr class="my-4 hr-cr" />
       <p class="text-center text-body-secondary small mb-0">
+        <!-- span ว่างเปล่า รอ js/main.js เติมปี พ.ศ. ให้ตอนโหลดหน้า
+             ทำแบบนี้เพื่อไม่ต้องไล่แก้ปีใน 6 ไฟล์ทุกปี -->
         &copy; <span id="year"></span> SWU CLASSMATE · จัดทำเพื่อการศึกษา ไม่ใช่เว็บไซต์ทางการของมหาวิทยาลัย
       </p>
 

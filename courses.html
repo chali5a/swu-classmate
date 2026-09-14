@@ -1,4 +1,12 @@
+<!-- ===========================================
+     SWU CLASSMATE - รายการวิชาเสรีทั้งหมด
+     โครงสร้าง: แถบตัวกรอง 6 กลุ่ม (ซ้าย) + รายการวิชา 3 ใบ (ขวา)
+     ใช้ JavaScript: main.js + courses.js
+     สไตล์ทั้งหมดมาจาก css/style.css (ไฟล์เดียวใช้ทุกหน้า)
+     =========================================== -->
 <!DOCTYPE html>
+<!-- lang="th" บอกว่าหน้านี้เป็นภาษาไทย (ช่วยเรื่องการอ่านออกเสียงและการค้นหา)
+     data-bs-theme คือสวิตช์ธีมของ Bootstrap 5.3 — js/main.js จะเปลี่ยนค่านี้เป็น "dark" ตอนกดปุ่มสลับธีม -->
 <html lang="th" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +29,8 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#da2128" />
 
-  <!-- CSS ภายนอกที่เขียนเอง -->
+  <!-- CSS ที่เขียนเอง ต้องอยู่ "หลัง" Bootstrap เสมอ
+       เพราะถ้า specificity เท่ากัน ไฟล์ที่มาทีหลังจะชนะ ถ้าสลับลำดับสีของเราจะโดน Bootstrap ทับ -->
   <link href="css/style.css" rel="stylesheet" />
 </head>
 
@@ -40,12 +49,17 @@
       <div class="navbar-collapse">
         <ul class="navbar-nav mx-auto gap-1">
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+          <!-- active = คลาสของ Bootstrap ใช้ทำสีพื้นหลัง
+               aria-current="page" = บอกโปรแกรมอ่านหน้าจอว่านี่คือหน้าที่กำลังเปิดอยู่
+               ต้องมีทั้งคู่ เพราะทำคนละหน้าที่กัน -->
           <li class="nav-item"><a class="nav-link active" href="courses.html" aria-current="page">วิชาเสรีทั้งหมด</a></li>
           <li class="nav-item"><a class="nav-link" href="ranking.html">จัดอันดับ</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">ทดลองจัดอันดับ</a></li>
         </ul>
 
         <div class="d-flex align-items-center gap-2">
+          <!-- ปุ่มสลับโหมดสว่าง/มืด — js/main.js ผูก event ไว้ที่ id นี้
+               aria-label จำเป็น เพราะข้างในมีแต่ไอคอน ไม่มีข้อความให้อ่าน -->
           <button id="themeToggle" type="button" aria-label="สลับโหมดสว่าง/มืด">
             <i class="bi bi-moon-stars"></i>
           </button>
@@ -87,14 +101,19 @@
 
           <form class="filter-panel" id="filterForm">
 
+            <!-- ตัวกรองแต่ละกลุ่มใช้ <fieldset> + <legend> แทน <div> + <h2>
+                 เพราะนี่คือ "ป้ายกำกับกลุ่ม input" ไม่ใช่ "หัวข้อของเอกสาร"
+                 โปรแกรมอ่านหน้าจอจะอ่านว่า "กลุ่มหมวดหมู่ — เทคโนโลยี ช่องทำเครื่องหมาย"
+                 ทำให้ผู้ใช้รู้ว่า checkbox ตัวนี้อยู่กลุ่มไหน -->
+
             <!-- ค้นหา -->
             <fieldset class="filter-group">
               <legend class="filter-title">ค้นหา</legend>
               <div class="filter-search d-flex align-items-center gap-2">
-              <i class="bi bi-search text-body-secondary"></i>
-              <label for="courseSearch" class="visually-hidden">ค้นหาวิชา</label>
-              <input type="search" class="form-control" id="courseSearch"
-                   placeholder="รหัสวิชา หรือ ชื่อวิชา" />
+                <i class="bi bi-search text-body-secondary"></i>
+                <label for="courseSearch" class="visually-hidden">ค้นหาวิชา</label>
+                <input type="search" class="form-control" id="courseSearch"
+                     placeholder="รหัสวิชา หรือ ชื่อวิชา" />
               </div>
             </fieldset>
 
@@ -103,16 +122,20 @@
               <legend class="filter-title">หมวดหมู่</legend>
 
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="เทคโนโลยี" id="catTech" data-filter="cat" />
-              <label class="form-check-label" for="catTech">เทคโนโลยี</label>
+                <!-- data-filter="cat" คือกุญแจสำคัญ
+                     js/courses.js ไม่ได้ไล่หา checkbox ทีละอัน แต่หาจากป้ายนี้ทีเดียวทั้งกลุ่ม
+                     ทำให้เพิ่มตัวกรองใหม่ได้โดยแทบไม่ต้องแก้ JS
+                     ส่วน for="catTech" ที่ <label> ทำให้คลิกที่ข้อความก็ติ๊กได้ ไม่ต้องจิ้มช่องเล็ก ๆ -->
+                <input class="form-check-input" type="checkbox" value="เทคโนโลยี" id="catTech" data-filter="cat" />
+                <label class="form-check-label" for="catTech">เทคโนโลยี</label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="ธุรกิจ" id="catBiz" data-filter="cat" />
-              <label class="form-check-label" for="catBiz">ธุรกิจ &amp; การเงิน</label>
+                <input class="form-check-input" type="checkbox" value="ธุรกิจ" id="catBiz" data-filter="cat" />
+                <label class="form-check-label" for="catBiz">ธุรกิจ &amp; การเงิน</label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="ภาษา" id="catLang" data-filter="cat" />
-              <label class="form-check-label" for="catLang">ภาษา &amp; การสื่อสาร</label>
+                <input class="form-check-input" type="checkbox" value="ภาษา" id="catLang" data-filter="cat" />
+                <label class="form-check-label" for="catLang">ภาษา &amp; การสื่อสาร</label>
               </div>
             </fieldset>
 
@@ -121,10 +144,10 @@
               <legend class="filter-title">คณะที่เปิดสอน</legend>
               <label for="facultySelect" class="visually-hidden">เลือกคณะ</label>
               <select class="form-select sort-select w-100" id="facultySelect" data-filter="faculty">
-              <option value="">ทุกคณะ</option>
-              <option value="คณะบริหารธุรกิจเพื่อสังคม">คณะบริหารธุรกิจเพื่อสังคม</option>
-              <option value="คณะมนุษยศาสตร์">คณะมนุษยศาสตร์</option>
-              <option value="สำนักนวัตกรรมการเรียนรู้">สำนักนวัตกรรมการเรียนรู้</option>
+                <option value="">ทุกคณะ</option>
+                <option value="คณะบริหารธุรกิจเพื่อสังคม">คณะบริหารธุรกิจเพื่อสังคม</option>
+                <option value="คณะมนุษยศาสตร์">คณะมนุษยศาสตร์</option>
+                <option value="สำนักนวัตกรรมการเรียนรู้">สำนักนวัตกรรมการเรียนรู้</option>
               </select>
             </fieldset>
 
@@ -133,12 +156,12 @@
               <legend class="filter-title">หน่วยกิต</legend>
 
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="3" id="credit3" data-filter="credit" />
-              <label class="form-check-label" for="credit3">3 หน่วยกิต</label>
+                <input class="form-check-input" type="checkbox" value="3" id="credit3" data-filter="credit" />
+                <label class="form-check-label" for="credit3">3 หน่วยกิต</label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="6" id="credit6" data-filter="credit" />
-              <label class="form-check-label" for="credit6">6 หน่วยกิต</label>
+                <input class="form-check-input" type="checkbox" value="6" id="credit6" data-filter="credit" />
+                <label class="form-check-label" for="credit6">6 หน่วยกิต</label>
               </div>
             </fieldset>
 
@@ -147,16 +170,16 @@
               <legend class="filter-title">รูปแบบการเรียน</legend>
 
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="onsite" id="modeOnsite" data-filter="mode" />
-              <label class="form-check-label" for="modeOnsite">
-                <i class="bi bi-building me-1"></i> เรียนในห้อง (Onsite)
-              </label>
+                <input class="form-check-input" type="checkbox" value="onsite" id="modeOnsite" data-filter="mode" />
+                <label class="form-check-label" for="modeOnsite">
+                  <i class="bi bi-building me-1"></i> เรียนในห้อง (Onsite)
+                </label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="hybrid" id="modeHybrid" data-filter="mode" />
-              <label class="form-check-label" for="modeHybrid">
-                <i class="bi bi-arrow-left-right me-1"></i> ผสมผสาน (Online &amp; Onsite)
-              </label>
+                <input class="form-check-input" type="checkbox" value="hybrid" id="modeHybrid" data-filter="mode" />
+                <label class="form-check-label" for="modeHybrid">
+                  <i class="bi bi-arrow-left-right me-1"></i> ผสมผสาน (Online &amp; Onsite)
+                </label>
               </div>
             </fieldset>
 
@@ -165,21 +188,22 @@
               <legend class="filter-title">ภาษาที่ใช้สอน</legend>
 
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="th" id="langTh" data-filter="lang" />
-              <label class="form-check-label" for="langTh">ภาษาไทย</label>
+                <input class="form-check-input" type="checkbox" value="th" id="langTh" data-filter="lang" />
+                <label class="form-check-label" for="langTh">ภาษาไทย</label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="both" id="langBoth" data-filter="lang" />
-              <label class="form-check-label" for="langBoth">ไทย &amp; อังกฤษ</label>
+                <input class="form-check-input" type="checkbox" value="both" id="langBoth" data-filter="lang" />
+                <label class="form-check-label" for="langBoth">ไทย &amp; อังกฤษ</label>
               </div>
             </fieldset>
 
             <!-- ปุ่มล้างตัวกรอง -->
             <div class="filter-group">
               <button type="reset" class="btn btn-cr-outline w-100">
-              <i class="bi bi-arrow-counterclockwise me-1"></i> ล้างตัวกรอง
+                <i class="bi bi-arrow-counterclockwise me-1"></i> ล้างตัวกรอง
               </button>
             </div>
+
 
           </form>
 
@@ -191,11 +215,13 @@
           <!-- แถบเครื่องมือ -->
           <div class="toolbar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
             <p class="mb-0 small">
+              <!-- ตัวเลขใน #resultCount ถูกอัปเดตโดย js/courses.js ทุกครั้งที่กรอง -->
               พบ <strong id="resultCount">3</strong> วิชา จากทั้งหมด 3 วิชา
             </p>
 
             <div class="d-flex align-items-center gap-2">
               <label for="sortSelect" class="small text-body-secondary mb-0">เรียงตาม</label>
+              <!-- ค่า value ของแต่ละ option ตรงกับเงื่อนไข if ใน applySort() ของ js/courses.js -->
               <select class="form-select sort-select" id="sortSelect">
                 <option value="popular">ยอดนิยม</option>
                 <option value="rating">คะแนนสูงสุด</option>
@@ -211,6 +237,10 @@
           <!-- รายการวิชา -->
           <div class="d-flex flex-column gap-3" id="courseList">
 
+            <!-- การ์ดวิชาแบบแถวนอน
+                 data-* ทุกตัวคือ "ที่เก็บข้อมูล" แทนฐานข้อมูล (เว็บนี้ไม่มีระบบหลังบ้าน)
+                 js/courses.js อ่านค่าพวกนี้ผ่าน .dataset เพื่อกรองและเรียงลำดับ
+                 ค่าที่อ่านได้เป็นข้อความเสมอ ถ้าจะเทียบขนาดต้องแปลงด้วย Number() ก่อน -->
             <!-- วิชาที่ 1 -->
             <article class="course-row" data-cat="ธุรกิจ" data-rating="4.7"
                      data-popular="428" data-workload="60" data-code="SWU356"
@@ -395,6 +425,7 @@
           </div>
 
           <!-- แสดงเมื่อกรองแล้วไม่เจอ -->
+          <!-- กล่องนี้ซ่อนด้วย d-none จนกว่ากรองแล้วไม่เจอวิชา (js/courses.js เป็นคนสลับ) -->
           <div id="emptyResult" class="text-center text-body-secondary py-5 d-none">
             <i class="bi bi-inbox fs-1"></i>
             <p class="mt-3 mb-1">ไม่พบวิชาที่ตรงกับตัวกรอง</p>
@@ -474,6 +505,8 @@
 
       <hr class="my-4 hr-cr" />
       <p class="text-center text-body-secondary small mb-0">
+        <!-- span ว่างเปล่า รอ js/main.js เติมปี พ.ศ. ให้ตอนโหลดหน้า
+             ทำแบบนี้เพื่อไม่ต้องไล่แก้ปีใน 6 ไฟล์ทุกปี -->
         &copy; <span id="year"></span> SWU CLASSMATE · จัดทำเพื่อการศึกษา ไม่ใช่เว็บไซต์ทางการของมหาวิทยาลัย
       </p>
 

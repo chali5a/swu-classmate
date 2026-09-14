@@ -1,4 +1,12 @@
+<!-- ===========================================
+     SWU CLASSMATE - ทดลองจัดอันดับวิชาเสรี
+     โครงสร้าง: คลังวิชา (ซ้าย) + อันดับที่เลือก (ขวา)
+     ใช้ JavaScript: main.js + simulator.js
+     สไตล์ทั้งหมดมาจาก css/style.css (ไฟล์เดียวใช้ทุกหน้า)
+     =========================================== -->
 <!DOCTYPE html>
+<!-- lang="th" บอกว่าหน้านี้เป็นภาษาไทย (ช่วยเรื่องการอ่านออกเสียงและการค้นหา)
+     data-bs-theme คือสวิตช์ธีมของ Bootstrap 5.3 — js/main.js จะเปลี่ยนค่านี้เป็น "dark" ตอนกดปุ่มสลับธีม -->
 <html lang="th" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +29,8 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="theme-color" content="#da2128" />
 
-  <!-- CSS ภายนอกที่เขียนเอง -->
+  <!-- CSS ที่เขียนเอง ต้องอยู่ "หลัง" Bootstrap เสมอ
+       เพราะถ้า specificity เท่ากัน ไฟล์ที่มาทีหลังจะชนะ ถ้าสลับลำดับสีของเราจะโดน Bootstrap ทับ -->
   <link href="css/style.css" rel="stylesheet" />
 </head>
 
@@ -42,10 +51,15 @@
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
           <li class="nav-item"><a class="nav-link" href="courses.html">วิชาเสรีทั้งหมด</a></li>
           <li class="nav-item"><a class="nav-link" href="ranking.html">จัดอันดับ</a></li>
+          <!-- active = คลาสของ Bootstrap ใช้ทำสีพื้นหลัง
+               aria-current="page" = บอกโปรแกรมอ่านหน้าจอว่านี่คือหน้าที่กำลังเปิดอยู่
+               ต้องมีทั้งคู่ เพราะทำคนละหน้าที่กัน -->
           <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">ทดลองจัดอันดับ</a></li>
         </ul>
 
         <div class="d-flex align-items-center gap-2">
+          <!-- ปุ่มสลับโหมดสว่าง/มืด — js/main.js ผูก event ไว้ที่ id นี้
+               aria-label จำเป็น เพราะข้างในมีแต่ไอคอน ไม่มีข้อความให้อ่าน -->
           <button id="themeToggle" type="button" aria-label="สลับโหมดสว่าง/มืด">
             <i class="bi bi-moon-stars"></i>
           </button>
@@ -145,6 +159,9 @@
             </p>
 
             <div id="poolList">
+            <!-- การ์ดวิชาในคลัง เขียนเป็น HTML จริงทั้งหมด ไม่ได้สร้างจาก JavaScript
+                 js/simulator.js เก็บไว้แค่ "รหัสวิชา" เวลาต้องการชื่อหรือหน่วยกิต
+                 จะย้อนมาอ่านจาก data-* ของการ์ดใบนี้เสมอ ข้อมูลจึงมีที่เดียว ไม่มีทางไม่ตรงกัน -->
             <article class="pick-row"
                      data-code="SWU356" data-name="การจัดการทางการเงินส่วนบุคคล"
                      data-credit="3"
@@ -159,6 +176,8 @@
                   <span class="meta-badge"><i class="bi bi-translate" aria-hidden="true"></i> สอนภาษาไทย</span>
                 </div>
               </div>
+              <!-- data-add เป็นป้ายให้ JS หาปุ่มนี้เจอ (ไม่ได้ใช้ทำสไตล์)
+                   ตั้งชื่อแบบนี้เพื่อไม่ให้ปนกับคลาสที่ใช้จัดหน้าตา -->
               <button type="button" class="btn-add" data-add
                       aria-label="เพิ่ม การจัดการทางการเงินส่วนบุคคล เข้าอันดับ">
                 <i class="bi bi-plus-lg" aria-hidden="true"></i>
@@ -226,6 +245,8 @@
                 &middot; รวม <strong id="creditSum">0</strong> หน่วยกิต
               </p>
 
+              <!-- <ol> ว่างเปล่า — js/simulator.js สร้าง <li> ใส่ให้ตอนผู้ใช้กดเพิ่มวิชา
+                   ใช้ <ol> เพราะลำดับมีความหมาย (อันดับ 1 ต่างจากอันดับ 3) ไม่ใช่ <ul> -->
               <ol class="rank-list" id="rankList"></ol>
 
               <div id="rankEmpty" class="text-center text-body-secondary py-4">
@@ -329,6 +350,8 @@
 
       <hr class="my-4 hr-cr" />
       <p class="text-center text-body-secondary small mb-0">
+        <!-- span ว่างเปล่า รอ js/main.js เติมปี พ.ศ. ให้ตอนโหลดหน้า
+             ทำแบบนี้เพื่อไม่ต้องไล่แก้ปีใน 6 ไฟล์ทุกปี -->
         &copy; <span id="year"></span> SWU CLASSMATE · จัดทำเพื่อการศึกษา ไม่ใช่เว็บไซต์ทางการของมหาวิทยาลัย
       </p>
 
