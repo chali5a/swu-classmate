@@ -616,11 +616,6 @@ h1, h2, h3, h4, .navbar-brand {
   font-size: 0.8rem;
 }
 
-/* สีเน้นตามรูปแบบการเรียน */
-.meta-badge.is-online {
-  border-color: var(--cr-primary);
-  color: var(--cr-primary);
-}
 
 /* ---------- 15. แถบเครื่องมือด้านบนรายการ ---------- */
 .toolbar {

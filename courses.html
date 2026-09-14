@@ -112,18 +112,6 @@
                   <label class="form-check-label" for="catBiz">ธุรกิจ &amp; การเงิน</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="ศิลปะ" id="catArt" data-filter="cat" />
-                  <label class="form-check-label" for="catArt">ศิลปะ &amp; สร้างสรรค์</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="สุขภาพ" id="catHealth" data-filter="cat" />
-                  <label class="form-check-label" for="catHealth">สุขภาพ &amp; กีฬา</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="สังคม" id="catSocial" data-filter="cat" />
-                  <label class="form-check-label" for="catSocial">สังคม &amp; พลเมือง</label>
-                </div>
-                <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="ภาษา" id="catLang" data-filter="cat" />
                   <label class="form-check-label" for="catLang">ภาษา &amp; การสื่อสาร</label>
                 </div>
@@ -137,13 +125,7 @@
                   <option value="">ทุกคณะ</option>
                   <option value="คณะบริหารธุรกิจเพื่อสังคม">คณะบริหารธุรกิจเพื่อสังคม</option>
                   <option value="คณะมนุษยศาสตร์">คณะมนุษยศาสตร์</option>
-                  <option value="คณะศิลปกรรมศาสตร์">คณะศิลปกรรมศาสตร์</option>
-                  <option value="คณะสังคมศาสตร์">คณะสังคมศาสตร์</option>
-                  <option value="คณะเศรษฐศาสตร์">คณะเศรษฐศาสตร์</option>
-                  <option value="คณะพลศึกษา">คณะพลศึกษา</option>
                   <option value="สำนักนวัตกรรมการเรียนรู้">สำนักนวัตกรรมการเรียนรู้</option>
-                  <option value="วิทยาลัยนานาชาติเพื่อศึกษาความยั่งยืน">วิทยาลัยนานาชาติเพื่อศึกษาความยั่งยืน</option>
-                  <option value="วิทยาลัยอุตสาหกรรมสร้างสรรค์">วิทยาลัยอุตสาหกรรมสร้างสรรค์</option>
                 </select>
               </fieldset>
 
@@ -152,20 +134,8 @@
                 <legend class="filter-title">หน่วยกิต</legend>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="2" id="credit2" data-filter="credit" />
-                  <label class="form-check-label" for="credit2">2 หน่วยกิต</label>
-                </div>
-                <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="3" id="credit3" data-filter="credit" />
                   <label class="form-check-label" for="credit3">3 หน่วยกิต</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="4" id="credit4" data-filter="credit" />
-                  <label class="form-check-label" for="credit4">4 หน่วยกิต</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="5" id="credit5" data-filter="credit" />
-                  <label class="form-check-label" for="credit5">5 หน่วยกิต</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="6" id="credit6" data-filter="credit" />
@@ -184,12 +154,6 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="online" id="modeOnline" data-filter="mode" />
-                  <label class="form-check-label" for="modeOnline">
-                    <i class="bi bi-laptop me-1"></i> เรียนออนไลน์ (Online)
-                  </label>
-                </div>
-                <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="hybrid" id="modeHybrid" data-filter="mode" />
                   <label class="form-check-label" for="modeHybrid">
                     <i class="bi bi-arrow-left-right me-1"></i> ผสมผสาน (Online &amp; Onsite)
@@ -204,10 +168,6 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="th" id="langTh" data-filter="lang" />
                   <label class="form-check-label" for="langTh">ภาษาไทย</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="en" id="langEn" data-filter="lang" />
-                  <label class="form-check-label" for="langEn">ภาษาอังกฤษ</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="both" id="langBoth" data-filter="lang" />
@@ -233,7 +193,7 @@
           <!-- แถบเครื่องมือ -->
           <div class="toolbar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
             <p class="mb-0 small">
-              พบ <strong id="resultCount">12</strong> วิชา จากทั้งหมด 12 วิชา
+              พบ <strong id="resultCount">3</strong> วิชา จากทั้งหมด 3 วิชา
             </p>
 
             <div class="d-flex align-items-center gap-2">
@@ -313,618 +273,7 @@
                 </div>
               </div>
             </article>
-
             <!-- วิชาที่ 2 -->
-            <article class="course-row" data-cat="เทคโนโลยี" data-rating="4.5"
-                     data-popular="312" data-workload="55" data-code="SWU141"
-                     data-faculty="สำนักนวัตกรรมการเรียนรู้" data-credit="3" data-mode="hybrid" data-lang="both"
-                     data-name="ชีวิตในโลกดิจิทัล"
-                     data-search="SWU 141 ชีวิตในโลกดิจิทัล เทคโนโลยี">
-              <div class="row-thumb thumb-gray">
-                <span class="row-code">SWU 141</span>
-                <span class="row-score">4.5</span>
-                <span class="row-count">312 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">เทคโนโลยี</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> สำนักนวัตกรรมการเรียนรู้</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-arrow-left-right"></i> ผสมผสาน</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> ไทย + อังกฤษ</span>
-                </div>
-                <h2 class="course-name">ชีวิตในโลกดิจิทัล</h2>
-                <span class="stars" role="img" style="--pct: 90%" aria-label="คะแนน 4.5 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>88</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 88%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>55</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 55%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>90</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 90%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เนื้อหาทันสมัย ใช้ได้จริงในชีวิตประจำวัน งานไม่หนัก เหมาะเก็บเสรีปี 1
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">เกรดง่าย</span>
-                  <span class="tag-pill">งานเดี่ยว</span>
-                  <span class="tag-pill">เรียนออนไลน์ได้</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 3 -->
-            <article class="course-row" data-cat="ศิลปะ" data-rating="4.4"
-                     data-popular="265" data-workload="72" data-code="SWU254"
-                     data-faculty="คณะศิลปกรรมศาสตร์" data-credit="3" data-mode="onsite" data-lang="th"
-                     data-name="ศิลปะและความคิดสร้างสรรค์"
-                     data-search="SWU 254 ศิลปะและความคิดสร้างสรรค์ ศิลปะ">
-              <div class="row-thumb thumb-dark">
-                <span class="row-code">SWU 254</span>
-                <span class="row-score">4.4</span>
-                <span class="row-count">265 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">ศิลปะ &amp; สร้างสรรค์</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะศิลปกรรมศาสตร์</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">ศิลปะและความคิดสร้างสรรค์</h2>
-                <span class="stars" role="img" style="--pct: 88%" aria-label="คะแนน 4.4 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>86</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 86%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>72</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 72%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>88</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 88%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  ได้ทำงานศิลปะจริงทุกคาบ ผ่อนคลาย แต่ต้องเผื่อเวลาทำชิ้นงานส่ง
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">ได้ลงมือทำ</span>
-                  <span class="tag-pill">งานกลุ่ม</span>
-                  <span class="tag-pill">ไม่ต้องมีพื้นฐาน</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 4 -->
-            <article class="course-row" data-cat="สุขภาพ" data-rating="4.2"
-                     data-popular="389" data-workload="42" data-code="SWU374"
-                     data-faculty="คณะพลศึกษา" data-credit="3" data-mode="hybrid" data-lang="th"
-                     data-name="สุขภาพเพื่อชีวิต"
-                     data-search="SWU 374 สุขภาพเพื่อชีวิต สุขภาพ กีฬา">
-              <div class="row-thumb">
-                <span class="row-code">SWU 374</span>
-                <span class="row-score">4.2</span>
-                <span class="row-count">389 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">สุขภาพ &amp; กีฬา</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะพลศึกษา</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-arrow-left-right"></i> ผสมผสาน</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">สุขภาพเพื่อชีวิต</h2>
-                <span class="stars" role="img" style="--pct: 84%" aria-label="คะแนน 4.2 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>80</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 80%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>42</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="42" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 42%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>84</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 84%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เรียนสบาย เนื้อหาเข้าใจง่าย เหมาะกับคนที่อยากได้เกรดดีโดยไม่เครียด
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">เกรดง่าย</span>
-                  <span class="tag-pill">ไม่เช็คชื่อ</span>
-                  <span class="tag-pill">งานน้อย</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 5 -->
-            <article class="course-row" data-cat="ภาษา" data-rating="4.1"
-                     data-popular="356" data-workload="50" data-code="SWU121"
-                     data-faculty="คณะมนุษยศาสตร์" data-credit="3" data-mode="onsite" data-lang="en"
-                     data-name="ภาษาอังกฤษเพื่อประสิทธิภาพการสื่อสาร"
-                     data-search="SWU 121 ภาษาอังกฤษเพื่อประสิทธิภาพการสื่อสาร ภาษา">
-              <div class="row-thumb thumb-gray">
-                <span class="row-code">SWU 121</span>
-                <span class="row-score">4.1</span>
-                <span class="row-count">356 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">ภาษา &amp; การสื่อสาร</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะมนุษยศาสตร์</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาอังกฤษ</span>
-                </div>
-                <h2 class="course-name">ภาษาอังกฤษเพื่อประสิทธิภาพการสื่อสาร</h2>
-                <span class="stars" role="img" style="--pct: 82%" aria-label="คะแนน 4.1 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>84</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 84%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>50</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 50%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>86</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 86%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เน้นฝึกพูดในห้องเป็นหลัก บรรยากาศเป็นกันเอง เหมาะกับคนอยากฝึกกล้าพูด
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">ได้ฝึกพูด</span>
-                  <span class="tag-pill">งานคู่</span>
-                  <span class="tag-pill">บรรยากาศดี</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 6 -->
-            <article class="course-row" data-cat="เทคโนโลยี" data-rating="4.0"
-                     data-popular="187" data-workload="80" data-code="SWU341"
-                     data-faculty="คณะบริหารธุรกิจเพื่อสังคม" data-credit="3" data-mode="online" data-lang="th"
-                     data-name="ธุรกิจในโลกดิจิทัล"
-                     data-search="SWU 341 ธุรกิจในโลกดิจิทัล เทคโนโลยี">
-              <div class="row-thumb thumb-dark">
-                <span class="row-code">SWU 341</span>
-                <span class="row-score">4.0</span>
-                <span class="row-count">187 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">เทคโนโลยี</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะบริหารธุรกิจเพื่อสังคม</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge is-online"><i class="bi bi-laptop"></i> เรียนออนไลน์</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">ธุรกิจในโลกดิจิทัล</h2>
-                <span class="stars" role="img" style="--pct: 80%" aria-label="คะแนน 4.0 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>88</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 88%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>80</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 80%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>82</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 82%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  ได้ทำแผนธุรกิจจริงเป็นกลุ่ม เนื้อหาดีแต่มีงานส่งเกือบทุกสัปดาห์
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">งานกลุ่มเยอะ</span>
-                  <span class="tag-pill">ได้ผลงานจริง</span>
-                  <span class="tag-pill">ต้องนำเสนอ</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 7 -->
-            <article class="course-row" data-cat="สังคม" data-rating="3.6"
-                     data-popular="274" data-workload="78" data-code="SWU261"
-                     data-faculty="คณะสังคมศาสตร์" data-credit="3" data-mode="onsite" data-lang="th"
-                     data-name="พลเมืองวิวัฒน์"
-                     data-search="SWU 261 พลเมืองวิวัฒน์ สังคม พลเมือง">
-              <div class="row-thumb">
-                <span class="row-code">SWU 261</span>
-                <span class="row-score">3.6</span>
-                <span class="row-count">274 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">สังคม &amp; พลเมือง</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะสังคมศาสตร์</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">พลเมืองวิวัฒน์</h2>
-                <span class="stars" role="img" style="--pct: 72%" aria-label="คะแนน 3.6 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>82</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 82%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>78</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 78%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>70</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 70%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เนื้อหาน่าสนใจแต่มีงานกลุ่มและการนำเสนอค่อนข้างบ่อย ควรเลือกกลุ่มดี ๆ
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">เช็คชื่อทุกคาบ</span>
-                  <span class="tag-pill">งานกลุ่มเยอะ</span>
-                  <span class="tag-pill">ต้องนำเสนอ</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 8 -->
-            <article class="course-row" data-cat="ธุรกิจ" data-rating="3.4"
-                     data-popular="198" data-workload="70" data-code="SWU364"
-                     data-faculty="คณะเศรษฐศาสตร์" data-credit="3" data-mode="online" data-lang="th"
-                     data-name="เศรษฐกิจในกระแสโลกาภิวัตน์"
-                     data-search="SWU 364 เศรษฐกิจในกระแสโลกาภิวัตน์ ธุรกิจ การเงิน">
-              <div class="row-thumb thumb-gray">
-                <span class="row-code">SWU 364</span>
-                <span class="row-score">3.4</span>
-                <span class="row-count">198 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">ธุรกิจ &amp; การเงิน</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะเศรษฐศาสตร์</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge is-online"><i class="bi bi-laptop"></i> เรียนออนไลน์</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">เศรษฐกิจในกระแสโลกาภิวัตน์</h2>
-                <span class="stars" role="img" style="--pct: 68%" aria-label="คะแนน 3.4 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>84</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 84%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>70</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 70%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>66</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 66%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เนื้อหาแน่นและค่อนข้างวิชาการ ถ้าไม่ชอบเศรษฐศาสตร์อาจรู้สึกหนัก
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">ทฤษฎีเยอะ</span>
-                  <span class="tag-pill">สอบข้อเขียน</span>
-                  <span class="tag-pill">ต้องอ่านเอง</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 9 -->
-            <article class="course-row" data-cat="สุขภาพ" data-rating="3.3"
-                     data-popular="142" data-workload="88" data-code="SWU372"
-                     data-faculty="คณะพลศึกษา" data-credit="2" data-mode="onsite" data-lang="th"
-                     data-name="กิจกรรมเข้าจังหวะและการเต้น"
-                     data-search="SWU 372 กิจกรรมเข้าจังหวะและการเต้น สุขภาพ กีฬา">
-              <div class="row-thumb thumb-dark">
-                <span class="row-code">SWU 372</span>
-                <span class="row-score">3.3</span>
-                <span class="row-count">142 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">สุขภาพ &amp; กีฬา</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะพลศึกษา</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 2 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">กิจกรรมเข้าจังหวะและการเต้น</h2>
-                <span class="stars" role="img" style="--pct: 66%" aria-label="คะแนน 3.3 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>76</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 76%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>88</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 88%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>68</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 68%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  สนุกถ้าชอบเต้น แต่ต้องซ้อมนอกเวลาเยอะมากก่อนสอบปฏิบัติ
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">สอบปฏิบัติ</span>
-                  <span class="tag-pill">ซ้อมนอกเวลา</span>
-                  <span class="tag-pill">งานกลุ่ม</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 10 -->
-            <article class="course-row" data-cat="สังคม" data-rating="4.4"
-                     data-popular="186" data-workload="72" data-code="SWU246"
-                     data-faculty="วิทยาลัยนานาชาติเพื่อศึกษาความยั่งยืน" data-credit="4" data-mode="online" data-lang="en"
-                     data-name="พลเมืองโลกกับการพัฒนาที่ยั่งยืน"
-                     data-search="SWU 246 พลเมืองโลกกับการพัฒนาที่ยั่งยืน สังคม ยั่งยืน sdgs online">
-              <div class="row-thumb">
-                <span class="row-code">SWU 246</span>
-                <span class="row-score">4.4</span>
-                <span class="row-count">186 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">สังคม &amp; พลเมือง</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> วิทยาลัยนานาชาติเพื่อศึกษาความยั่งยืน</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 4 หน่วยกิต</span>
-                  <span class="meta-badge is-online"><i class="bi bi-laptop"></i> เรียนออนไลน์</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาอังกฤษ</span>
-                </div>
-                <h2 class="course-name">พลเมืองโลกกับการพัฒนาที่ยั่งยืน</h2>
-                <span class="stars" role="img" style="--pct: 88%" aria-label="คะแนน 4.4 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>90</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 90%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>72</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 72%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>86</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 86%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เรียนออนไลน์ทั้งเทอม สอนเป็นภาษาอังกฤษ เนื้อหาอิงเป้าหมาย SDGs มีงานนำเสนอกลุ่มปลายภาค
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">เรียนออนไลน์</span>
-                  <span class="tag-pill">สอนอังกฤษ</span>
-                  <span class="tag-pill">งานนำเสนอ</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 11 -->
-            <article class="course-row" data-cat="ศิลปะ" data-rating="4.2"
-                     data-popular="97" data-workload="84" data-code="SWU385"
-                     data-faculty="วิทยาลัยอุตสาหกรรมสร้างสรรค์" data-credit="5" data-mode="hybrid" data-lang="th"
-                     data-name="โครงงานสร้างสรรค์เพื่อชุมชน"
-                     data-search="SWU 385 โครงงานสร้างสรรค์เพื่อชุมชน ศิลปะ สร้างสรรค์ ชุมชน">
-              <div class="row-thumb thumb-gray">
-                <span class="row-code">SWU 385</span>
-                <span class="row-score">4.2</span>
-                <span class="row-count">97 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">ศิลปะ &amp; สร้างสรรค์</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> วิทยาลัยอุตสาหกรรมสร้างสรรค์</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 5 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-arrow-left-right"></i> ผสมผสาน</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">โครงงานสร้างสรรค์เพื่อชุมชน</h2>
-                <span class="stars" role="img" style="--pct: 84%" aria-label="คะแนน 4.2 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>88</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 88%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>84</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 84%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>90</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 90%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  หน่วยกิตเยอะเพราะต้องลงพื้นที่จริง เรียนออนไลน์สลับกับ workshop ในห้อง ได้ผลงานเข้าพอร์ต
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">ลงพื้นที่จริง</span>
-                  <span class="tag-pill">ได้ผลงาน</span>
-                  <span class="tag-pill">งานหนัก</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- วิชาที่ 12 -->
             <article class="course-row" data-cat="ภาษา" data-rating="4.6"
                      data-popular="241" data-workload="70" data-code="SWU132"
                      data-faculty="คณะมนุษยศาสตร์" data-credit="6" data-mode="onsite" data-lang="th"
@@ -978,6 +327,66 @@
                   <span class="tag-pill">เริ่มจากศูนย์</span>
                   <span class="tag-pill">อาจารย์ใจดี</span>
                   <span class="tag-pill">มีท่องศัพท์</span>
+                  <a href="course-detail.html" class="ms-auto small link-cr">
+                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <!-- วิชาที่ 3 -->
+            <article class="course-row" data-cat="เทคโนโลยี" data-rating="4.5"
+                     data-popular="312" data-workload="55" data-code="SWU141"
+                     data-faculty="สำนักนวัตกรรมการเรียนรู้" data-credit="3" data-mode="hybrid" data-lang="both"
+                     data-name="ชีวิตในโลกดิจิทัล"
+                     data-search="SWU 141 ชีวิตในโลกดิจิทัล เทคโนโลยี">
+              <div class="row-thumb thumb-gray">
+                <span class="row-code">SWU 141</span>
+                <span class="row-score">4.5</span>
+                <span class="row-count">312 รีวิว</span>
+              </div>
+              <div class="row-body">
+                <p class="course-code mb-0">เทคโนโลยี</p>
+                <div class="d-flex flex-wrap gap-1 mt-2">
+                  <span class="meta-badge"><i class="bi bi-bank"></i> สำนักนวัตกรรมการเรียนรู้</span>
+                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
+                  <span class="meta-badge"><i class="bi bi-arrow-left-right"></i> ผสมผสาน</span>
+                  <span class="meta-badge"><i class="bi bi-translate"></i> ไทย + อังกฤษ</span>
+                </div>
+                <h2 class="course-name">ชีวิตในโลกดิจิทัล</h2>
+                <span class="stars" role="img" style="--pct: 90%" aria-label="คะแนน 4.5 จาก 5"></span>
+
+                <div class="mini-scores">
+                  <div>
+                    <p class="mini-label"><span>เนื้อหา</span><span>88</span></p>
+                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
+                         aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar" style="width: 88%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="mini-label"><span>ปริมาณงาน</span><span>55</span></p>
+                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
+                         aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar" style="width: 55%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="mini-label"><span>ความคุ้มค่า</span><span>90</span></p>
+                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
+                         aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-body-secondary small mb-3">
+                  เนื้อหาทันสมัย ใช้ได้จริงในชีวิตประจำวัน งานไม่หนัก เหมาะเก็บเสรีปี 1
+                </p>
+
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                  <span class="tag-pill">เกรดง่าย</span>
+                  <span class="tag-pill">งานเดี่ยว</span>
+                  <span class="tag-pill">เรียนออนไลน์ได้</span>
                   <a href="course-detail.html" class="ms-auto small link-cr">
                     ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
                   </a>
