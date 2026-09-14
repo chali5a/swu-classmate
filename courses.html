@@ -37,7 +37,7 @@
       </a>
 
 
-      <div class="collapse navbar-collapse" id="mainNav">
+      <div class="navbar-collapse">
         <ul class="navbar-nav mx-auto gap-1">
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
           <li class="nav-item"><a class="nav-link active" href="courses.html" aria-current="page">วิชาเสรีทั้งหมด</a></li>
@@ -85,105 +85,103 @@
         <!-- ---------- คอลัมน์ซ้าย: ตัวกรอง ---------- -->
         <aside class="col-3">
 
-          <div id="filterPanel">
-            <form class="filter-panel" id="filterForm">
+          <form class="filter-panel" id="filterForm">
 
-              <!-- ค้นหา -->
-              <fieldset class="filter-group">
-                <legend class="filter-title">ค้นหา</legend>
-                <div class="filter-search d-flex align-items-center gap-2">
-                  <i class="bi bi-search text-body-secondary"></i>
-                  <label for="courseSearch" class="visually-hidden">ค้นหาวิชา</label>
-                  <input type="search" class="form-control" id="courseSearch"
-                         placeholder="รหัสวิชา หรือ ชื่อวิชา" />
-                </div>
-              </fieldset>
-
-              <!-- หมวดหมู่ -->
-              <fieldset class="filter-group">
-                <legend class="filter-title">หมวดหมู่</legend>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="เทคโนโลยี" id="catTech" data-filter="cat" />
-                  <label class="form-check-label" for="catTech">เทคโนโลยี</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="ธุรกิจ" id="catBiz" data-filter="cat" />
-                  <label class="form-check-label" for="catBiz">ธุรกิจ &amp; การเงิน</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="ภาษา" id="catLang" data-filter="cat" />
-                  <label class="form-check-label" for="catLang">ภาษา &amp; การสื่อสาร</label>
-                </div>
-              </fieldset>
-
-              <!-- คณะ / หน่วยงานที่เปิดสอน -->
-              <fieldset class="filter-group">
-                <legend class="filter-title">คณะที่เปิดสอน</legend>
-                <label for="facultySelect" class="visually-hidden">เลือกคณะ</label>
-                <select class="form-select sort-select w-100" id="facultySelect" data-filter="faculty">
-                  <option value="">ทุกคณะ</option>
-                  <option value="คณะบริหารธุรกิจเพื่อสังคม">คณะบริหารธุรกิจเพื่อสังคม</option>
-                  <option value="คณะมนุษยศาสตร์">คณะมนุษยศาสตร์</option>
-                  <option value="สำนักนวัตกรรมการเรียนรู้">สำนักนวัตกรรมการเรียนรู้</option>
-                </select>
-              </fieldset>
-
-              <!-- จำนวนหน่วยกิต -->
-              <fieldset class="filter-group">
-                <legend class="filter-title">หน่วยกิต</legend>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="3" id="credit3" data-filter="credit" />
-                  <label class="form-check-label" for="credit3">3 หน่วยกิต</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="6" id="credit6" data-filter="credit" />
-                  <label class="form-check-label" for="credit6">6 หน่วยกิต</label>
-                </div>
-              </fieldset>
-
-              <!-- รูปแบบการเรียน -->
-              <fieldset class="filter-group">
-                <legend class="filter-title">รูปแบบการเรียน</legend>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="onsite" id="modeOnsite" data-filter="mode" />
-                  <label class="form-check-label" for="modeOnsite">
-                    <i class="bi bi-building me-1"></i> เรียนในห้อง (Onsite)
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="hybrid" id="modeHybrid" data-filter="mode" />
-                  <label class="form-check-label" for="modeHybrid">
-                    <i class="bi bi-arrow-left-right me-1"></i> ผสมผสาน (Online &amp; Onsite)
-                  </label>
-                </div>
-              </fieldset>
-
-              <!-- ภาษาที่ใช้สอน -->
-              <fieldset class="filter-group">
-                <legend class="filter-title">ภาษาที่ใช้สอน</legend>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="th" id="langTh" data-filter="lang" />
-                  <label class="form-check-label" for="langTh">ภาษาไทย</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="both" id="langBoth" data-filter="lang" />
-                  <label class="form-check-label" for="langBoth">ไทย &amp; อังกฤษ</label>
-                </div>
-              </fieldset>
-
-              <!-- ปุ่มล้างตัวกรอง -->
-              <div class="filter-group">
-                <button type="reset" class="btn btn-cr-outline w-100">
-                  <i class="bi bi-arrow-counterclockwise me-1"></i> ล้างตัวกรอง
-                </button>
+            <!-- ค้นหา -->
+            <fieldset class="filter-group">
+              <legend class="filter-title">ค้นหา</legend>
+              <div class="filter-search d-flex align-items-center gap-2">
+              <i class="bi bi-search text-body-secondary"></i>
+              <label for="courseSearch" class="visually-hidden">ค้นหาวิชา</label>
+              <input type="search" class="form-control" id="courseSearch"
+                   placeholder="รหัสวิชา หรือ ชื่อวิชา" />
               </div>
+            </fieldset>
 
-            </form>
-          </div>
+            <!-- หมวดหมู่ -->
+            <fieldset class="filter-group">
+              <legend class="filter-title">หมวดหมู่</legend>
+
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="เทคโนโลยี" id="catTech" data-filter="cat" />
+              <label class="form-check-label" for="catTech">เทคโนโลยี</label>
+              </div>
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="ธุรกิจ" id="catBiz" data-filter="cat" />
+              <label class="form-check-label" for="catBiz">ธุรกิจ &amp; การเงิน</label>
+              </div>
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="ภาษา" id="catLang" data-filter="cat" />
+              <label class="form-check-label" for="catLang">ภาษา &amp; การสื่อสาร</label>
+              </div>
+            </fieldset>
+
+            <!-- คณะ / หน่วยงานที่เปิดสอน -->
+            <fieldset class="filter-group">
+              <legend class="filter-title">คณะที่เปิดสอน</legend>
+              <label for="facultySelect" class="visually-hidden">เลือกคณะ</label>
+              <select class="form-select sort-select w-100" id="facultySelect" data-filter="faculty">
+              <option value="">ทุกคณะ</option>
+              <option value="คณะบริหารธุรกิจเพื่อสังคม">คณะบริหารธุรกิจเพื่อสังคม</option>
+              <option value="คณะมนุษยศาสตร์">คณะมนุษยศาสตร์</option>
+              <option value="สำนักนวัตกรรมการเรียนรู้">สำนักนวัตกรรมการเรียนรู้</option>
+              </select>
+            </fieldset>
+
+            <!-- จำนวนหน่วยกิต -->
+            <fieldset class="filter-group">
+              <legend class="filter-title">หน่วยกิต</legend>
+
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="3" id="credit3" data-filter="credit" />
+              <label class="form-check-label" for="credit3">3 หน่วยกิต</label>
+              </div>
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="6" id="credit6" data-filter="credit" />
+              <label class="form-check-label" for="credit6">6 หน่วยกิต</label>
+              </div>
+            </fieldset>
+
+            <!-- รูปแบบการเรียน -->
+            <fieldset class="filter-group">
+              <legend class="filter-title">รูปแบบการเรียน</legend>
+
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="onsite" id="modeOnsite" data-filter="mode" />
+              <label class="form-check-label" for="modeOnsite">
+                <i class="bi bi-building me-1"></i> เรียนในห้อง (Onsite)
+              </label>
+              </div>
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="hybrid" id="modeHybrid" data-filter="mode" />
+              <label class="form-check-label" for="modeHybrid">
+                <i class="bi bi-arrow-left-right me-1"></i> ผสมผสาน (Online &amp; Onsite)
+              </label>
+              </div>
+            </fieldset>
+
+            <!-- ภาษาที่ใช้สอน -->
+            <fieldset class="filter-group">
+              <legend class="filter-title">ภาษาที่ใช้สอน</legend>
+
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="th" id="langTh" data-filter="lang" />
+              <label class="form-check-label" for="langTh">ภาษาไทย</label>
+              </div>
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="both" id="langBoth" data-filter="lang" />
+              <label class="form-check-label" for="langBoth">ไทย &amp; อังกฤษ</label>
+              </div>
+            </fieldset>
+
+            <!-- ปุ่มล้างตัวกรอง -->
+            <div class="filter-group">
+              <button type="reset" class="btn btn-cr-outline w-100">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> ล้างตัวกรอง
+              </button>
+            </div>
+
+          </form>
 
         </aside>
 
