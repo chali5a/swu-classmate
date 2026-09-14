@@ -45,7 +45,6 @@
              width="271" height="160" />
       </a>
 
-
       <div class="navbar-collapse">
         <ul class="navbar-nav mx-auto gap-1">
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
@@ -94,347 +93,245 @@
   <!-- ==================== เนื้อหาหลัก ==================== -->
   <main class="section">
     <div class="container">
-      <div class="row g-4">
+      <!-- แถบเครื่องมือด้านบน: ช่องค้นหา + จำนวนที่พบ + ตัวเลือกการเรียง -->
+      <div class="toolbar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
 
-        <!-- ---------- คอลัมน์ซ้าย: ตัวกรอง ---------- -->
-        <aside class="col-3">
+        <!-- ช่องค้นหา — js/courses.js กรองรายการด้านล่างแบบสด ๆ ทุกครั้งที่พิมพ์
+             label ใช้คลาส visually-hidden ของ Bootstrap คือซ่อนจากสายตา
+             แต่โปรแกรมอ่านหน้าจอยังอ่านเจอ (ต่างจาก d-none ที่ซ่อนจากทุกคน) -->
+        <div class="filter-search d-flex align-items-center gap-2">
+          <i class="bi bi-search text-body-secondary" aria-hidden="true"></i>
+          <label for="courseSearch" class="visually-hidden">ค้นหาวิชา</label>
+          <input type="search" class="form-control" id="courseSearch"
+                 placeholder="ค้นหารหัสวิชา หรือ ชื่อวิชา" />
+        </div>
 
-          <form class="filter-panel" id="filterForm">
+        <p class="mb-0 small">
+          <!-- ตัวเลขใน #resultCount ถูกอัปเดตโดย js/courses.js ทุกครั้งที่ค้นหา -->
+          พบ <strong id="resultCount">3</strong> วิชา จากทั้งหมด 3 วิชา
+        </p>
 
-            <!-- ตัวกรองแต่ละกลุ่มใช้ <fieldset> + <legend> แทน <div> + <h2>
-                 เพราะนี่คือ "ป้ายกำกับกลุ่ม input" ไม่ใช่ "หัวข้อของเอกสาร"
-                 โปรแกรมอ่านหน้าจอจะอ่านว่า "กลุ่มหมวดหมู่ — เทคโนโลยี ช่องทำเครื่องหมาย"
-                 ทำให้ผู้ใช้รู้ว่า checkbox ตัวนี้อยู่กลุ่มไหน -->
+          <div class="d-flex align-items-center gap-2">
+            <label for="sortSelect" class="small text-body-secondary mb-0">เรียงตาม</label>
+            <!-- ค่า value ของแต่ละ option ตรงกับเงื่อนไข if ใน applySort() ของ js/courses.js -->
+            <select class="form-select sort-select" id="sortSelect">
+              <option value="popular">ยอดนิยม</option>
+              <option value="rating">คะแนนสูงสุด</option>
+              <option value="workload">งานน้อยสุด</option>
+              <option value="code">รหัสวิชา (ก-ฮ / A-Z)</option>
+              <option value="name">ชื่อวิชา (ก-ฮ)</option>
+              <option value="creditAsc">หน่วยกิตน้อย &rarr; มาก</option>
+              <option value="creditDesc">หน่วยกิตมาก &rarr; น้อย</option>
+            </select>
+          </div>
+        </div>
 
-            <!-- ค้นหา -->
-            <fieldset class="filter-group">
-              <legend class="filter-title">ค้นหา</legend>
-              <div class="filter-search d-flex align-items-center gap-2">
-                <i class="bi bi-search text-body-secondary"></i>
-                <label for="courseSearch" class="visually-hidden">ค้นหาวิชา</label>
-                <input type="search" class="form-control" id="courseSearch"
-                     placeholder="รหัสวิชา หรือ ชื่อวิชา" />
-              </div>
-            </fieldset>
+        <!-- รายการวิชา -->
+        <div class="d-flex flex-column gap-3" id="courseList">
 
-            <!-- หมวดหมู่ -->
-            <fieldset class="filter-group">
-              <legend class="filter-title">หมวดหมู่</legend>
-
-              <div class="form-check">
-                <!-- data-filter="cat" คือกุญแจสำคัญ
-                     js/courses.js ไม่ได้ไล่หา checkbox ทีละอัน แต่หาจากป้ายนี้ทีเดียวทั้งกลุ่ม
-                     ทำให้เพิ่มตัวกรองใหม่ได้โดยแทบไม่ต้องแก้ JS
-                     ส่วน for="catTech" ที่ <label> ทำให้คลิกที่ข้อความก็ติ๊กได้ ไม่ต้องจิ้มช่องเล็ก ๆ -->
-                <input class="form-check-input" type="checkbox" value="เทคโนโลยี" id="catTech" data-filter="cat" />
-                <label class="form-check-label" for="catTech">เทคโนโลยี</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="ธุรกิจ" id="catBiz" data-filter="cat" />
-                <label class="form-check-label" for="catBiz">ธุรกิจ &amp; การเงิน</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="ภาษา" id="catLang" data-filter="cat" />
-                <label class="form-check-label" for="catLang">ภาษา &amp; การสื่อสาร</label>
-              </div>
-            </fieldset>
-
-            <!-- คณะ / หน่วยงานที่เปิดสอน -->
-            <fieldset class="filter-group">
-              <legend class="filter-title">คณะที่เปิดสอน</legend>
-              <label for="facultySelect" class="visually-hidden">เลือกคณะ</label>
-              <select class="form-select sort-select w-100" id="facultySelect" data-filter="faculty">
-                <option value="">ทุกคณะ</option>
-                <option value="คณะบริหารธุรกิจเพื่อสังคม">คณะบริหารธุรกิจเพื่อสังคม</option>
-                <option value="คณะมนุษยศาสตร์">คณะมนุษยศาสตร์</option>
-                <option value="สำนักนวัตกรรมการเรียนรู้">สำนักนวัตกรรมการเรียนรู้</option>
-              </select>
-            </fieldset>
-
-            <!-- จำนวนหน่วยกิต -->
-            <fieldset class="filter-group">
-              <legend class="filter-title">หน่วยกิต</legend>
-
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="3" id="credit3" data-filter="credit" />
-                <label class="form-check-label" for="credit3">3 หน่วยกิต</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="6" id="credit6" data-filter="credit" />
-                <label class="form-check-label" for="credit6">6 หน่วยกิต</label>
-              </div>
-            </fieldset>
-
-            <!-- รูปแบบการเรียน -->
-            <fieldset class="filter-group">
-              <legend class="filter-title">รูปแบบการเรียน</legend>
-
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="onsite" id="modeOnsite" data-filter="mode" />
-                <label class="form-check-label" for="modeOnsite">
-                  <i class="bi bi-building me-1"></i> เรียนในห้อง (Onsite)
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="hybrid" id="modeHybrid" data-filter="mode" />
-                <label class="form-check-label" for="modeHybrid">
-                  <i class="bi bi-arrow-left-right me-1"></i> ผสมผสาน (Online &amp; Onsite)
-                </label>
-              </div>
-            </fieldset>
-
-            <!-- ภาษาที่ใช้สอน -->
-            <fieldset class="filter-group">
-              <legend class="filter-title">ภาษาที่ใช้สอน</legend>
-
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="th" id="langTh" data-filter="lang" />
-                <label class="form-check-label" for="langTh">ภาษาไทย</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="both" id="langBoth" data-filter="lang" />
-                <label class="form-check-label" for="langBoth">ไทย &amp; อังกฤษ</label>
-              </div>
-            </fieldset>
-
-            <!-- ปุ่มล้างตัวกรอง -->
-            <div class="filter-group">
-              <button type="reset" class="btn btn-cr-outline w-100">
-                <i class="bi bi-arrow-counterclockwise me-1"></i> ล้างตัวกรอง
-              </button>
+          <!-- การ์ดวิชาแบบแถวนอน
+               data-* ทุกตัวคือ "ที่เก็บข้อมูล" แทนฐานข้อมูล (เว็บนี้ไม่มีระบบหลังบ้าน)
+               js/courses.js อ่านค่าพวกนี้ผ่าน .dataset เพื่อกรองและเรียงลำดับ
+               ค่าที่อ่านได้เป็นข้อความเสมอ ถ้าจะเทียบขนาดต้องแปลงด้วย Number() ก่อน -->
+          <!-- วิชาที่ 1 -->
+          <article class="course-row"
+                   data-rating="4.7"
+                   data-popular="428"
+                   data-workload="60"
+                   data-code="SWU356"
+                   data-credit="3"
+                   data-name="การจัดการทางการเงินส่วนบุคคล"
+                   data-search="SWU 356 การจัดการทางการเงินส่วนบุคคล ธุรกิจ การเงิน">
+            <div class="row-thumb">
+              <span class="row-code">SWU 356</span>
+              <span class="row-score">4.7</span>
+              <span class="row-count">428 รีวิว</span>
             </div>
+            <div class="row-body">
+              <p class="course-code mb-0">ธุรกิจ &amp; การเงิน</p>
+              <div class="d-flex flex-wrap gap-1 mt-2">
+                <span class="meta-badge"><i class="bi bi-bank"></i> คณะบริหารธุรกิจเพื่อสังคม</span>
+                <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
+                <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
+                <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
+              </div>
+              <h2 class="course-name">การจัดการทางการเงินส่วนบุคคล</h2>
+              <span class="stars" role="img" style="--pct: 94%" aria-label="คะแนน 4.7 จาก 5"></span>
 
+              <div class="mini-scores">
+                <div>
+                  <p class="mini-label"><span>เนื้อหา</span><span>94</span></p>
+                  <div class="progress" role="progressbar" aria-label="เนื้อหา"
+                       aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 94%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="mini-label"><span>ปริมาณงาน</span><span>60</span></p>
+                  <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
+                       aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 60%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="mini-label"><span>ความคุ้มค่า</span><span>96</span></p>
+                  <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
+                       aria-valuenow="96" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 96%"></div>
+                  </div>
+                </div>
+              </div>
 
-          </form>
+              <p class="text-body-secondary small mb-3">
+                วิชาที่ควรลงสักครั้งในชีวิต สอนวางแผนการเงิน ภาษี และการลงทุนเบื้องต้น
+              </p>
 
-        </aside>
-
-        <!-- ---------- คอลัมน์ขวา: รายการวิชา ---------- -->
-        <div class="col-9">
-
-          <!-- แถบเครื่องมือ -->
-          <div class="toolbar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-            <p class="mb-0 small">
-              <!-- ตัวเลขใน #resultCount ถูกอัปเดตโดย js/courses.js ทุกครั้งที่กรอง -->
-              พบ <strong id="resultCount">3</strong> วิชา จากทั้งหมด 3 วิชา
-            </p>
-
-            <div class="d-flex align-items-center gap-2">
-              <label for="sortSelect" class="small text-body-secondary mb-0">เรียงตาม</label>
-              <!-- ค่า value ของแต่ละ option ตรงกับเงื่อนไข if ใน applySort() ของ js/courses.js -->
-              <select class="form-select sort-select" id="sortSelect">
-                <option value="popular">ยอดนิยม</option>
-                <option value="rating">คะแนนสูงสุด</option>
-                <option value="workload">งานน้อยสุด</option>
-                <option value="code">รหัสวิชา (ก-ฮ / A-Z)</option>
-                <option value="name">ชื่อวิชา (ก-ฮ)</option>
-                <option value="creditAsc">หน่วยกิตน้อย &rarr; มาก</option>
-                <option value="creditDesc">หน่วยกิตมาก &rarr; น้อย</option>
-              </select>
+              <div class="d-flex flex-wrap align-items-center gap-2">
+                <span class="tag-pill">ได้ความรู้ติดตัว</span>
+                <span class="tag-pill">อาจารย์สอนสนุก</span>
+                <span class="tag-pill">สอบไม่ยาก</span>
+                <a href="course-detail.html" class="ms-auto small link-cr">
+                  ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
             </div>
-          </div>
-
-          <!-- รายการวิชา -->
-          <div class="d-flex flex-column gap-3" id="courseList">
-
-            <!-- การ์ดวิชาแบบแถวนอน
-                 data-* ทุกตัวคือ "ที่เก็บข้อมูล" แทนฐานข้อมูล (เว็บนี้ไม่มีระบบหลังบ้าน)
-                 js/courses.js อ่านค่าพวกนี้ผ่าน .dataset เพื่อกรองและเรียงลำดับ
-                 ค่าที่อ่านได้เป็นข้อความเสมอ ถ้าจะเทียบขนาดต้องแปลงด้วย Number() ก่อน -->
-            <!-- วิชาที่ 1 -->
-            <article class="course-row" data-cat="ธุรกิจ" data-rating="4.7"
-                     data-popular="428" data-workload="60" data-code="SWU356"
-                     data-faculty="คณะบริหารธุรกิจเพื่อสังคม" data-credit="3" data-mode="onsite" data-lang="th"
-                     data-name="การจัดการทางการเงินส่วนบุคคล"
-                     data-search="SWU 356 การจัดการทางการเงินส่วนบุคคล ธุรกิจ การเงิน">
-              <div class="row-thumb">
-                <span class="row-code">SWU 356</span>
-                <span class="row-score">4.7</span>
-                <span class="row-count">428 รีวิว</span>
+          </article>
+          <!-- วิชาที่ 2 -->
+          <article class="course-row"
+                   data-rating="4.6"
+                   data-popular="241"
+                   data-workload="70"
+                   data-code="SWU132"
+                   data-credit="6"
+                   data-name="ภาษาเกาหลีเพื่อการสื่อสาร"
+                   data-search="SWU 132 ภาษาเกาหลีเพื่อการสื่อสาร ภาษา เกาหลี korean">
+            <div class="row-thumb thumb-dark">
+              <span class="row-code">SWU 132</span>
+              <span class="row-score">4.6</span>
+              <span class="row-count">241 รีวิว</span>
+            </div>
+            <div class="row-body">
+              <p class="course-code mb-0">ภาษา &amp; การสื่อสาร</p>
+              <div class="d-flex flex-wrap gap-1 mt-2">
+                <span class="meta-badge"><i class="bi bi-bank"></i> คณะมนุษยศาสตร์</span>
+                <span class="meta-badge"><i class="bi bi-award"></i> 6 หน่วยกิต</span>
+                <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
+                <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
               </div>
-              <div class="row-body">
-                <p class="course-code mb-0">ธุรกิจ &amp; การเงิน</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะบริหารธุรกิจเพื่อสังคม</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">การจัดการทางการเงินส่วนบุคคล</h2>
-                <span class="stars" role="img" style="--pct: 94%" aria-label="คะแนน 4.7 จาก 5"></span>
+              <h2 class="course-name">ภาษาเกาหลีเพื่อการสื่อสาร</h2>
+              <span class="stars" role="img" style="--pct: 92%" aria-label="คะแนน 4.6 จาก 5"></span>
 
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>94</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 94%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>60</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 60%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>96</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="96" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 96%"></div>
-                    </div>
+              <div class="mini-scores">
+                <div>
+                  <p class="mini-label"><span>เนื้อหา</span><span>93</span></p>
+                  <div class="progress" role="progressbar" aria-label="เนื้อหา"
+                       aria-valuenow="93" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 93%"></div>
                   </div>
                 </div>
-
-                <p class="text-body-secondary small mb-3">
-                  วิชาที่ควรลงสักครั้งในชีวิต สอนวางแผนการเงิน ภาษี และการลงทุนเบื้องต้น
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">ได้ความรู้ติดตัว</span>
-                  <span class="tag-pill">อาจารย์สอนสนุก</span>
-                  <span class="tag-pill">สอบไม่ยาก</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
+                <div>
+                  <p class="mini-label"><span>ปริมาณงาน</span><span>70</span></p>
+                  <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
+                       aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="mini-label"><span>ความคุ้มค่า</span><span>94</span></p>
+                  <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
+                       aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 94%"></div>
+                  </div>
                 </div>
               </div>
-            </article>
-            <!-- วิชาที่ 2 -->
-            <article class="course-row" data-cat="ภาษา" data-rating="4.6"
-                     data-popular="241" data-workload="70" data-code="SWU132"
-                     data-faculty="คณะมนุษยศาสตร์" data-credit="6" data-mode="onsite" data-lang="th"
-                     data-name="ภาษาเกาหลีเพื่อการสื่อสาร"
-                     data-search="SWU 132 ภาษาเกาหลีเพื่อการสื่อสาร ภาษา เกาหลี korean">
-              <div class="row-thumb thumb-dark">
-                <span class="row-code">SWU 132</span>
-                <span class="row-score">4.6</span>
-                <span class="row-count">241 รีวิว</span>
+
+              <p class="text-body-secondary small mb-3">
+                เริ่มจากอักษรฮันกึลจนพูดประโยคง่าย ๆ ได้ เรียน 6 หน่วยกิตแต่คุ้มมาก อาจารย์ใจดี
+              </p>
+
+              <div class="d-flex flex-wrap align-items-center gap-2">
+                <span class="tag-pill">เริ่มจากศูนย์</span>
+                <span class="tag-pill">อาจารย์ใจดี</span>
+                <span class="tag-pill">มีท่องศัพท์</span>
+                <a href="course-detail.html" class="ms-auto small link-cr">
+                  ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
-              <div class="row-body">
-                <p class="course-code mb-0">ภาษา &amp; การสื่อสาร</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> คณะมนุษยศาสตร์</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 6 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-building"></i> เรียนในห้อง</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> สอนภาษาไทย</span>
-                </div>
-                <h2 class="course-name">ภาษาเกาหลีเพื่อการสื่อสาร</h2>
-                <span class="stars" role="img" style="--pct: 92%" aria-label="คะแนน 4.6 จาก 5"></span>
-
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>93</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="93" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 93%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>70</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 70%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>94</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 94%"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เริ่มจากอักษรฮันกึลจนพูดประโยคง่าย ๆ ได้ เรียน 6 หน่วยกิตแต่คุ้มมาก อาจารย์ใจดี
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">เริ่มจากศูนย์</span>
-                  <span class="tag-pill">อาจารย์ใจดี</span>
-                  <span class="tag-pill">มีท่องศัพท์</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
+            </div>
+          </article>
+          <!-- วิชาที่ 3 -->
+          <article class="course-row"
+                   data-rating="4.5"
+                   data-popular="312"
+                   data-workload="55"
+                   data-code="SWU141"
+                   data-credit="3"
+                   data-name="ชีวิตในโลกดิจิทัล"
+                   data-search="SWU 141 ชีวิตในโลกดิจิทัล เทคโนโลยี">
+            <div class="row-thumb thumb-gray">
+              <span class="row-code">SWU 141</span>
+              <span class="row-score">4.5</span>
+              <span class="row-count">312 รีวิว</span>
+            </div>
+            <div class="row-body">
+              <p class="course-code mb-0">เทคโนโลยี</p>
+              <div class="d-flex flex-wrap gap-1 mt-2">
+                <span class="meta-badge"><i class="bi bi-bank"></i> สำนักนวัตกรรมการเรียนรู้</span>
+                <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
+                <span class="meta-badge"><i class="bi bi-arrow-left-right"></i> ผสมผสาน</span>
+                <span class="meta-badge"><i class="bi bi-translate"></i> ไทย + อังกฤษ</span>
               </div>
-            </article>
-            <!-- วิชาที่ 3 -->
-            <article class="course-row" data-cat="เทคโนโลยี" data-rating="4.5"
-                     data-popular="312" data-workload="55" data-code="SWU141"
-                     data-faculty="สำนักนวัตกรรมการเรียนรู้" data-credit="3" data-mode="hybrid" data-lang="both"
-                     data-name="ชีวิตในโลกดิจิทัล"
-                     data-search="SWU 141 ชีวิตในโลกดิจิทัล เทคโนโลยี">
-              <div class="row-thumb thumb-gray">
-                <span class="row-code">SWU 141</span>
-                <span class="row-score">4.5</span>
-                <span class="row-count">312 รีวิว</span>
-              </div>
-              <div class="row-body">
-                <p class="course-code mb-0">เทคโนโลยี</p>
-                <div class="d-flex flex-wrap gap-1 mt-2">
-                  <span class="meta-badge"><i class="bi bi-bank"></i> สำนักนวัตกรรมการเรียนรู้</span>
-                  <span class="meta-badge"><i class="bi bi-award"></i> 3 หน่วยกิต</span>
-                  <span class="meta-badge"><i class="bi bi-arrow-left-right"></i> ผสมผสาน</span>
-                  <span class="meta-badge"><i class="bi bi-translate"></i> ไทย + อังกฤษ</span>
-                </div>
-                <h2 class="course-name">ชีวิตในโลกดิจิทัล</h2>
-                <span class="stars" role="img" style="--pct: 90%" aria-label="คะแนน 4.5 จาก 5"></span>
+              <h2 class="course-name">ชีวิตในโลกดิจิทัล</h2>
+              <span class="stars" role="img" style="--pct: 90%" aria-label="คะแนน 4.5 จาก 5"></span>
 
-                <div class="mini-scores">
-                  <div>
-                    <p class="mini-label"><span>เนื้อหา</span><span>88</span></p>
-                    <div class="progress" role="progressbar" aria-label="เนื้อหา"
-                         aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 88%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ปริมาณงาน</span><span>55</span></p>
-                    <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
-                         aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 55%"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="mini-label"><span>ความคุ้มค่า</span><span>90</span></p>
-                    <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
-                         aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar" style="width: 90%"></div>
-                    </div>
+              <div class="mini-scores">
+                <div>
+                  <p class="mini-label"><span>เนื้อหา</span><span>88</span></p>
+                  <div class="progress" role="progressbar" aria-label="เนื้อหา"
+                       aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 88%"></div>
                   </div>
                 </div>
-
-                <p class="text-body-secondary small mb-3">
-                  เนื้อหาทันสมัย ใช้ได้จริงในชีวิตประจำวัน งานไม่หนัก เหมาะเก็บเสรีปี 1
-                </p>
-
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                  <span class="tag-pill">เกรดง่าย</span>
-                  <span class="tag-pill">งานเดี่ยว</span>
-                  <span class="tag-pill">เรียนออนไลน์ได้</span>
-                  <a href="course-detail.html" class="ms-auto small link-cr">
-                    ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
-                  </a>
+                <div>
+                  <p class="mini-label"><span>ปริมาณงาน</span><span>55</span></p>
+                  <div class="progress" role="progressbar" aria-label="ปริมาณงาน"
+                       aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 55%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="mini-label"><span>ความคุ้มค่า</span><span>90</span></p>
+                  <div class="progress" role="progressbar" aria-label="ความคุ้มค่า"
+                       aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 90%"></div>
+                  </div>
                 </div>
               </div>
-            </article>
 
-          </div>
+              <p class="text-body-secondary small mb-3">
+                เนื้อหาทันสมัย ใช้ได้จริงในชีวิตประจำวัน งานไม่หนัก เหมาะเก็บเสรีปี 1
+              </p>
 
-          <!-- แสดงเมื่อกรองแล้วไม่เจอ -->
-          <!-- กล่องนี้ซ่อนด้วย d-none จนกว่ากรองแล้วไม่เจอวิชา (js/courses.js เป็นคนสลับ) -->
-          <div id="emptyResult" class="text-center text-body-secondary py-5 d-none">
-            <i class="bi bi-inbox fs-1"></i>
-            <p class="mt-3 mb-1">ไม่พบวิชาที่ตรงกับตัวกรอง</p>
-            <p class="small mb-0">ลองลดเงื่อนไขลง หรือกดปุ่ม "ล้างตัวกรอง"</p>
-          </div>
+              <div class="d-flex flex-wrap align-items-center gap-2">
+                <span class="tag-pill">เกรดง่าย</span>
+                <span class="tag-pill">งานเดี่ยว</span>
+                <span class="tag-pill">เรียนออนไลน์ได้</span>
+                <a href="course-detail.html" class="ms-auto small link-cr">
+                  ดูรีวิวทั้งหมด <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
 
         </div>
 
-      </div>
+        <!-- กล่องนี้ซ่อนด้วย d-none จนกว่าค้นหาแล้วไม่เจอวิชา (js/courses.js เป็นคนสลับ) -->
+        <div id="emptyResult" class="text-center text-body-secondary py-5 d-none">
+          <i class="bi bi-inbox fs-1"></i>
+          <p class="mt-3 mb-1">ไม่พบวิชาที่ค้นหา</p>
+          <p class="small mb-0">ลองใช้คำอื่น หรือล้างช่องค้นหาเพื่อดูทั้งหมด</p>
+        </div>
+
     </div>
 
   <!-- ==================== CTA ==================== -->

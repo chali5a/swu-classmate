@@ -86,12 +86,11 @@ body {
   max-width: 1140px;
 }
 
-/* กล่องพื้นฐานของเว็บ - ใช้ร่วมกัน 9 ที่
+/* กล่องพื้นฐานของเว็บ - ใช้ร่วมกัน 8 ที่
    แยก 3 บรรทัดนี้ออกมาไว้ที่เดียว จะได้ไม่ต้องเขียนซ้ำในทุกกล่อง */
 .hero-card,
 .stat-box,
 .review-card,
-.filter-panel,
 .toolbar,
 .score-card,
 .panel,
@@ -527,62 +526,8 @@ h1, h2, h3, h4, .navbar-brand {
   color: var(--cr-text);
 }
 
-/* ---------- 14. กล่องตัวกรอง (Sidebar) ---------- */
-.filter-panel {
-  padding: 24px;
-}
-
-/* .filter-title เป็น <legend> ของแต่ละกลุ่มตัวกรอง
-   Bootstrap ตั้ง legend ให้ float: left; width: 100% และตัวใหญ่ ต้องล้างค่าก่อน */
-.filter-title {
-  float: none;
-  width: auto;
-  display: block;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-/* ตัวกรองแต่ละกลุ่มเป็น <fieldset> จึงต้องล้าง margin/padding ที่เบราว์เซอร์ใส่มาให้ */
-.filter-group {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  min-width: 0; /* กัน fieldset ดันคอลัมน์ให้กว้างเกิน grid */
-}
-
-.filter-group + .filter-group {
-  border-top: 1px solid var(--cr-border);
-  margin-top: 20px;
-  padding-top: 20px;
-}
-
-.filter-panel .form-check {
-  margin-bottom: 8px;
-}
-
-.filter-panel .form-check-label {
-  font-size: 0.9rem;
-  color: var(--cr-muted);
-  cursor: pointer;
-}
-
-.filter-panel .form-check-input {
-  border-color: var(--cr-border);
-  cursor: pointer;
-}
-
-.filter-panel .form-check-input:checked {
-  background-color: var(--cr-primary);
-  border-color: var(--cr-primary);
-}
-
-.filter-panel .form-check-input:focus {
-  box-shadow: 0 0 0 3px var(--cr-primary-soft);
-  border-color: var(--cr-primary);
-}
-
-/* ช่องค้นหาในกล่องตัวกรอง */
+/* ---------- 14. ช่องค้นหา + ป้ายข้อมูลบนการ์ด ---------- */
+/* ช่องค้นหาในแถบเครื่องมือ */
 .filter-search {
   border: 1px solid var(--cr-border);
   background-color: var(--cr-bg);
@@ -599,7 +544,7 @@ h1, h2, h3, h4, .navbar-brand {
   padding: 0;
 }
 
-/* ป้ายข้อมูลย่อยบนการ์ด (รูปแบบเรียน / ภาษา / หน่วยกิต) */
+/* ป้ายข้อมูลย่อยบนการ์ด (คณะ / หน่วยกิต / รูปแบบเรียน / ภาษา) */
 .meta-badge {
   display: inline-flex;
   align-items: center;
