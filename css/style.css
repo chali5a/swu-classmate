@@ -720,31 +720,11 @@ h1, h2, h3, h4, .navbar-brand {
   margin-bottom: 4px;
 }
 
-/* ---------- 17. Pagination ---------- */
-.pagination {
-  --bs-pagination-color: var(--cr-muted);
-  --bs-pagination-bg: var(--cr-surface);
-  --bs-pagination-border-color: var(--cr-border);
-  --bs-pagination-hover-color: var(--cr-primary);
-  --bs-pagination-hover-bg: var(--cr-primary-soft);
-  --bs-pagination-hover-border-color: var(--cr-border);
-  --bs-pagination-active-bg: var(--cr-primary);
-  --bs-pagination-active-border-color: var(--cr-primary);
-  --bs-pagination-focus-box-shadow: 0 0 0 3px var(--cr-primary-soft);
-  --bs-pagination-disabled-bg: var(--cr-surface);
-  --bs-pagination-disabled-border-color: var(--cr-border);
-}
-
-.pagination .page-link {
-  border-radius: 10px;
-  margin: 0 3px;
-}
-
 /* ===========================================
-   ส่วนที่ 18-22 ใช้ในหน้า course-detail.html
+   ส่วนที่ 17-21 ใช้ในหน้า course-detail.html
    =========================================== */
 
-/* ---------- 18. หัวหน้ารายละเอียดวิชา ---------- */
+/* ---------- 17. หัวหน้ารายละเอียดวิชา ---------- */
 .detail-head {
   padding: 32px 0 40px;
   border-bottom: 1px solid var(--cr-border);
@@ -813,7 +793,7 @@ h1, h2, h3, h4, .navbar-brand {
   background-color: var(--cr-accent);
 }
 
-/* ---------- 19. แท็บ ---------- */
+/* ---------- 18. แท็บ ---------- */
 .cr-tabs {
   border-bottom: 1px solid var(--cr-border);
   gap: 4px;
@@ -838,7 +818,7 @@ h1, h2, h3, h4, .navbar-brand {
   border-bottom-color: var(--cr-primary);
 }
 
-/* ---------- 20. กล่องเนื้อหาทั่วไป ---------- */
+/* ---------- 19. กล่องเนื้อหาทั่วไป ---------- */
 .panel {
   padding: 28px;
 }
@@ -912,7 +892,7 @@ h1, h2, h3, h4, .navbar-brand {
   text-align: right;
 }
 
-/* ---------- 21. Accordion (คำถามที่พบบ่อย) ---------- */
+/* ---------- 20. Accordion (คำถามที่พบบ่อย) ---------- */
 .cr-accordion {
   --bs-accordion-bg: transparent;
   --bs-accordion-color: var(--cr-text);
@@ -936,7 +916,7 @@ h1, h2, h3, h4, .navbar-brand {
   line-height: 1.8;
 }
 
-/* ---------- 22. รีวิวในหน้ารายละเอียด ---------- */
+/* ---------- 21. รีวิวในหน้ารายละเอียด ---------- */
 .review-item {
   border-bottom: 1px solid var(--cr-border);
   padding-bottom: 24px;
@@ -1009,7 +989,7 @@ h1, h2, h3, h4, .navbar-brand {
   top: 90px;
 }
 
-/* ---------- 23. ฟอร์มเขียนรีวิว ---------- */
+/* ---------- 22. ฟอร์มเขียนรีวิว ---------- */
 /* บังคับให้ช่องกรอกทุกชนิดใช้สีตามธีมของเว็บ (ทั้งโหมดสว่างและมืด) */
 .cr-form .form-control,
 .cr-form .form-select {
@@ -1191,7 +1171,7 @@ h1, h2, h3, h4, .navbar-brand {
   padding: 20px;
 }
 
-/* ---------- 24. หน้าจัดอันดับ ---------- */
+/* ---------- 23. หน้าจัดอันดับ ---------- */
 /* แท่นรับรางวัล 3 อันดับแรก */
 .podium {
   display: grid;
@@ -1388,7 +1368,7 @@ h1, h2, h3, h4, .navbar-brand {
   line-height: 1.35;
 }
 
-/* ---------- 25. หน้าทดลองจัดอันดับ ---------- */
+/* ---------- 24. หน้าทดลองจัดอันดับ ---------- */
 /* แถวรายวิชาในคลังให้เลือก */
 .pick-row {
   display: flex;
