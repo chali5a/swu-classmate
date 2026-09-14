@@ -28,7 +28,7 @@
 <body>
 
   <!-- ==================== NAVBAR ==================== -->
-  <nav class="navbar navbar-expand-lg cr-navbar sticky-top">
+  <nav class="navbar navbar-expand cr-navbar sticky-top">
     <div class="container">
 
       <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -36,14 +36,9 @@
              width="271" height="160" />
       </a>
 
-      <button class="navbar-toggler border-0" type="button"
-              data-bs-toggle="collapse" data-bs-target="#mainNav"
-              aria-controls="mainNav" aria-expanded="false" aria-label="เปิดเมนู">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav mx-auto gap-lg-1">
+        <ul class="navbar-nav mx-auto gap-1">
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
           <li class="nav-item"><a class="nav-link active" href="courses.html" aria-current="page">วิชาเสรีทั้งหมด</a></li>
           <li class="nav-item"><a class="nav-link" href="ranking.html">จัดอันดับ</a></li>
@@ -88,16 +83,9 @@
       <div class="row g-4">
 
         <!-- ---------- คอลัมน์ซ้าย: ตัวกรอง ---------- -->
-        <aside class="col-lg-3">
+        <aside class="col-3">
 
-          <!-- ปุ่มเปิดตัวกรองบนมือถือ -->
-          <button class="btn btn-cr-outline w-100 d-lg-none mb-3" type="button"
-                  data-bs-toggle="collapse" data-bs-target="#filterPanel"
-                  aria-expanded="false" aria-controls="filterPanel">
-            <i class="bi bi-sliders me-1"></i> ตัวกรองการค้นหา
-          </button>
-
-          <div class="collapse d-lg-block" id="filterPanel">
+          <div id="filterPanel">
             <form class="filter-panel" id="filterForm">
 
               <!-- ค้นหา -->
@@ -240,7 +228,7 @@
         </aside>
 
         <!-- ---------- คอลัมน์ขวา: รายการวิชา ---------- -->
-        <div class="col-lg-9">
+        <div class="col-9">
 
           <!-- แถบเครื่องมือ -->
           <div class="toolbar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
@@ -1056,7 +1044,7 @@
     <div class="container">
       <div class="row g-4">
 
-        <div class="col-lg-4">
+        <div class="col-4">
           <a class="navbar-brand d-flex align-items-center mb-3" href="index.html">
             <img src="images/logo.png" alt="SWU CLASSMATE" class="brand-logo brand-logo-lg"
                  width="271" height="160" />
@@ -1067,7 +1055,7 @@
           </p>
         </div>
 
-        <div class="col-6 col-lg-2">
+        <div class="col-2">
           <h2 class="h6 mb-3">เมนู</h2>
           <ul class="list-unstyled small mb-0">
             <li><a href="index.html">หน้าแรก</a></li>
@@ -1077,7 +1065,7 @@
           </ul>
         </div>
 
-        <div class="col-6 col-lg-3">
+        <div class="col-3">
           <h2 class="h6 mb-3">หมวดหมู่</h2>
           <ul class="list-unstyled small mb-0">
             <li><a href="courses.html">เทคโนโลยี</a></li>
@@ -1087,7 +1075,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3">
+        <div class="col-3">
           <h2 class="h6 mb-3">ติดตามเรา</h2>
           <div class="d-flex gap-2">
             <a href="#" class="chip" aria-label="Facebook"><i class="bi bi-facebook"></i></a>

@@ -67,6 +67,17 @@ body {
   font-family: "IBM Plex Sans Thai", "Segoe UI", sans-serif;
   background-color: var(--cr-bg);
   color: var(--cr-text);
+  /* เว็บนี้ออกแบบสำหรับจอคอมพิวเตอร์
+     ตรึงความกว้างขั้นต่ำไว้ จอแคบกว่านี้จะเลื่อนดูแนวนอนแทนการบีบ layout */
+  min-width: 1140px;
+}
+
+/* ตรึงความกว้างกล่องเนื้อหา
+   ปกติ .container ของ Bootstrap จะเปลี่ยนความกว้างตามขนาดจอ (1320/1140/960/720)
+   เขียนทับให้คงที่ เพื่อให้ทุกจอเห็นหน้าตาเหมือนกันทั้งหมด */
+.container {
+  width: 1140px;
+  max-width: 1140px;
 }
 
 h1, h2, h3, h4, .navbar-brand {
@@ -1015,11 +1026,9 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* แถบข้างที่ลอยตามตอนเลื่อน */
-@media (min-width: 992px) {
-  .sticky-side {
-    position: sticky;
-    top: 90px;
-  }
+.sticky-side {
+  position: sticky;
+  top: 90px;
 }
 
 /* ---------- 23. ฟอร์มเขียนรีวิว ---------- */
@@ -1573,47 +1582,4 @@ h1, h2, h3, h4, .navbar-brand {
   display: grid;
   place-items: center;
   margin-bottom: 14px;
-}
-
-/* ---------- 26. Responsive ---------- */
-@media (max-width: 991.98px) {
-  .course-row {
-    grid-template-columns: 120px 1fr;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .section { padding: 48px 0; }
-  .hero { padding: 56px 0 40px; }
-  .cta-band { padding: 32px 24px; text-align: center; }
-  .float-slow { animation: none; }
-
-  /* การ์ดแถวนอน เปลี่ยนเป็นแนวตั้งบนมือถือ */
-  .course-row {
-    grid-template-columns: 1fr;
-  }
-
-  .course-row .row-thumb {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 14px 20px;
-  }
-
-  .row-thumb .row-score {
-    font-size: 1.4rem;
-  }
-
-  .mini-scores {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  /* แท่นรับรางวัลบนมือถือ เรียงเป็นแนวตั้ง */
-  .podium {
-    grid-template-columns: 1fr;
-  }
-
-  .podium-item.is-first {
-    order: -1; /* ดันอันดับ 1 ขึ้นไปอยู่บนสุด */
-  }
 }

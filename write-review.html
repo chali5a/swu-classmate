@@ -28,7 +28,7 @@
 <body>
 
   <!-- ==================== NAVBAR ==================== -->
-  <nav class="navbar navbar-expand-lg cr-navbar sticky-top">
+  <nav class="navbar navbar-expand cr-navbar sticky-top">
     <div class="container">
 
       <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -36,14 +36,9 @@
              width="271" height="160" />
       </a>
 
-      <button class="navbar-toggler border-0" type="button"
-              data-bs-toggle="collapse" data-bs-target="#mainNav"
-              aria-controls="mainNav" aria-expanded="false" aria-label="เปิดเมนู">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav mx-auto gap-lg-1">
+        <ul class="navbar-nav mx-auto gap-1">
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
           <li class="nav-item"><a class="nav-link" href="courses.html">วิชาเสรีทั้งหมด</a></li>
           <li class="nav-item"><a class="nav-link" href="ranking.html">จัดอันดับ</a></li>
@@ -88,7 +83,7 @@
       <div class="row g-4">
 
         <!-- ---------- คอลัมน์ซ้าย: ฟอร์ม ---------- -->
-        <div class="col-lg-8">
+        <div class="col-8">
 
           <!-- กล่องแจ้งผลเมื่อส่งฟอร์มสำเร็จ -->
           <div class="alert alert-success d-none align-items-center gap-2 mb-4"
@@ -112,7 +107,7 @@
 
                 <div class="row g-3">
 
-                  <div class="col-sm-4">
+                  <div class="col-4">
                     <label for="courseCode" class="form-label">รหัสวิชา <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="courseCode" name="courseCode"
                            placeholder="SWU 356" pattern="[A-Za-z]{2,4}\s?[0-9]{3}[A-Za-z]?"
@@ -121,14 +116,14 @@
                     <div class="invalid-feedback">กรุณากรอกรหัสวิชาให้ถูกรูปแบบ เช่น SWU 356</div>
                   </div>
 
-                  <div class="col-sm-8">
+                  <div class="col-8">
                     <label for="courseName" class="form-label">ชื่อวิชา <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="courseName" name="courseName"
                            placeholder="การจัดการทางการเงินส่วนบุคคล" minlength="5" required />
                     <div class="invalid-feedback">กรุณากรอกชื่อวิชา (อย่างน้อย 5 ตัวอักษร)</div>
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="faculty" class="form-label">คณะที่เปิดสอน <span class="text-danger">*</span></label>
                     <select class="form-select" id="faculty" name="faculty" required>
                       <option value="" selected disabled>-- เลือกคณะ --</option>
@@ -145,7 +140,7 @@
                     <div class="invalid-feedback">กรุณาเลือกคณะที่เปิดสอน</div>
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="credit" class="form-label">หน่วยกิต <span class="text-danger">*</span></label>
                     <select class="form-select" id="credit" name="credit" required>
                       <option value="" selected disabled>-- เลือกหน่วยกิต --</option>
@@ -158,7 +153,7 @@
                     <div class="invalid-feedback">กรุณาเลือกจำนวนหน่วยกิต</div>
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="mode" class="form-label">รูปแบบการเรียน <span class="text-danger">*</span></label>
                     <select class="form-select" id="mode" name="mode" required>
                       <option value="" selected disabled>-- เลือกรูปแบบ --</option>
@@ -169,7 +164,7 @@
                     <div class="invalid-feedback">กรุณาเลือกรูปแบบการเรียน</div>
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="lang" class="form-label">ภาษาที่ใช้สอน <span class="text-danger">*</span></label>
                     <select class="form-select" id="lang" name="lang" required>
                       <option value="" selected disabled>-- เลือกภาษา --</option>
@@ -180,7 +175,7 @@
                     <div class="invalid-feedback">กรุณาเลือกภาษาที่ใช้สอน</div>
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="term" class="form-label">ภาคเรียนที่เรียน</label>
                     <select class="form-select" id="term" name="term">
                       <option value="1">ภาคเรียนที่ 1</option>
@@ -189,7 +184,7 @@
                     </select>
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="academicYear" class="form-label">ปีการศึกษา</label>
                     <input type="number" class="form-control" id="academicYear" name="academicYear"
                            value="2568" min="2560" max="2570" step="1" />
@@ -343,14 +338,14 @@
 
                 <div class="row g-3 mb-4">
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="nickname" class="form-label">ชื่อที่แสดง <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="nickname" name="nickname"
                            placeholder="เช่น นิสิตปี 2" required />
                     <div class="invalid-feedback">กรุณากรอกชื่อที่จะแสดงบนรีวิว</div>
                   </div>
 
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label for="email" class="form-label">อีเมลนิสิต <span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="email" name="email"
                            placeholder="example@g.swu.ac.th" required />
@@ -384,7 +379,7 @@
                   <button type="reset" class="btn btn-cr-outline">
                     <i class="bi bi-arrow-counterclockwise me-1"></i> ล้างฟอร์ม
                   </button>
-                  <a href="courses.html" class="btn btn-cr-outline ms-sm-auto">
+                  <a href="courses.html" class="btn btn-cr-outline ms-auto">
                     ยกเลิก
                   </a>
                 </div>
@@ -396,7 +391,7 @@
         </div>
 
         <!-- ---------- คอลัมน์ขวา: คำแนะนำ ---------- -->
-        <aside class="col-lg-4">
+        <aside class="col-4">
           <div class="sticky-side">
 
             <div class="tip-box mb-4">
@@ -444,7 +439,7 @@
     <div class="container">
       <div class="row g-4">
 
-        <div class="col-lg-4">
+        <div class="col-4">
           <a class="navbar-brand d-flex align-items-center mb-3" href="index.html">
             <img src="images/logo.png" alt="SWU CLASSMATE" class="brand-logo brand-logo-lg"
                  width="271" height="160" />
@@ -455,7 +450,7 @@
           </p>
         </div>
 
-        <div class="col-6 col-lg-2">
+        <div class="col-2">
           <h2 class="h6 mb-3">เมนู</h2>
           <ul class="list-unstyled small mb-0">
             <li><a href="index.html">หน้าแรก</a></li>
@@ -465,7 +460,7 @@
           </ul>
         </div>
 
-        <div class="col-6 col-lg-3">
+        <div class="col-3">
           <h2 class="h6 mb-3">หมวดหมู่</h2>
           <ul class="list-unstyled small mb-0">
             <li><a href="courses.html">เทคโนโลยี</a></li>
@@ -475,7 +470,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3">
+        <div class="col-3">
           <h2 class="h6 mb-3">ติดตามเรา</h2>
           <div class="d-flex gap-2">
             <a href="#" class="chip" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
