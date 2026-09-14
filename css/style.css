@@ -157,6 +157,10 @@ h1, h2, h3, h4, .navbar-brand {
 
 
 /* ---------- 3. ปุ่มของเว็บ ---------- */
+/* ปุ่มหลักของเว็บ
+   border-radius: 999px ใส่ค่าใหญ่เกินจริงไปเลย เบราว์เซอร์จะมนให้สุดเท่าที่ทำได้
+   ผลคือได้ปุ่มทรงแคปซูลพอดี ไม่ว่าปุ่มจะสูงเท่าไหร่
+   (ถ้าใช้ 50% จะกลายเป็นวงรี ไม่ใช่แคปซูล) */
 .btn-cr {
   background-color: var(--cr-primary);
   border: 0;
@@ -167,6 +171,9 @@ h1, h2, h3, h4, .navbar-brand {
   transition: transform 0.18s ease, background-color 0.18s ease;
 }
 
+/* :focus จำเป็นคู่กับ :hover เสมอ
+   คนที่ใช้คีย์บอร์ดอย่างเดียว (กด Tab) จะไม่มีวันเกิด :hover
+   ถ้ามีแค่ :hover เขาจะไม่เห็นว่าตอนนี้อยู่ปุ่มไหน */
 .btn-cr:hover,
 .btn-cr:focus {
   background-color: var(--cr-primary-dark);
@@ -302,6 +309,8 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* ---------- 6. แถบสถิติ ---------- */
+/* กล่องตัวเลขสถิติ 4 ช่องในหน้าแรก
+   height: 100% ทำให้ทุกกล่องในแถวสูงเท่ากัน แม้ข้อความยาวไม่เท่ากัน */
 .stat-box {
   padding: 26px 20px;
   height: 100%;
@@ -391,6 +400,12 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* ---------- 8. ดาวให้คะแนน (CSS ล้วน) ---------- */
+/* ดาวให้คะแนนวาดด้วย CSS ล้วน ไม่ใช้รูปภาพเลย ทำงาน 3 ชั้น
+     ชั้นที่ 1 (.stars)          เตรียมพื้นที่ + position: relative เพื่อ "ปักหมุด" ให้ลูก
+     ชั้นที่ 2 (::before)        ดาว 5 ดวงสีเทา เป็นพื้นหลัง
+     ชั้นที่ 3 (::after)         ดาว 5 ดวงสีทอง ซ้อนทับ แล้วตัดความกว้างตามคะแนน
+   ส่วนที่เกินถูก overflow: hidden ซ่อนไว้ จึงเห็นเป็นดาวครึ่งดวงได้
+   --pct: 0% เป็นค่าสำรอง เผื่อ HTML ลืมส่งค่ามาจะได้ไม่พัง */
 .stars {
   --pct: 0%;
   display: inline-block;
@@ -405,6 +420,9 @@ h1, h2, h3, h4, .navbar-brand {
   content: "★★★★★";
 }
 
+/* inset: 0 ย่อมาจาก top/right/bottom/left = 0 คือทาบให้เต็มกล่องแม่
+   width: var(--pct) คือหัวใจ — ตัดความกว้างตามเปอร์เซ็นต์คะแนนที่ส่งมาจาก HTML
+   white-space: nowrap กันไม่ให้ดาวตกบรรทัด */
 .stars::after {
   content: "★★★★★";
   position: absolute;
@@ -416,6 +434,9 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* ---------- 9. แถบคะแนนย่อย ---------- */
+/* แถวคะแนนย่อย จัดด้วย Grid 3 คอลัมน์: ชื่อหัวข้อ | แถบ | ตัวเลข
+   ใช้ Grid แทน Flex เพราะอยากให้คอลัมน์ชื่อกับตัวเลขกว้างเท่ากันทุกแถว
+   แถบตรงกลางจึงเริ่มและจบตรงกันพอดี */
 .score-row {
   display: grid;
   grid-template-columns: 88px 1fr 38px;
@@ -440,6 +461,8 @@ h1, h2, h3, h4, .navbar-brand {
   height: 100%;
 }
 
+/* วงกลมตัวอักษรย่อแทนรูปโปรไฟล์ — ไม่ต้องโหลดไฟล์ภาพ
+   display: grid + place-items: center คือวิธีจัดของให้อยู่กลางทั้งแนวตั้งและแนวนอนที่สั้นที่สุด */
 .avatar {
   width: 44px;
   height: 44px;
@@ -463,6 +486,8 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* ---------- 11. แถบชวนเขียนรีวิว ---------- */
+/* แถบชวนเขียนรีวิว ใช้พื้นไล่สีแดงเต็มความกว้าง
+   ตัวหนังสือข้างในเป็นสีขาว จึงต้องคุมให้พื้นเข้มพอเสมอ */
 .cta-band {
   background: linear-gradient(135deg, var(--cr-primary), var(--cr-primary-light));
   border-radius: 24px;
@@ -500,6 +525,8 @@ h1, h2, h3, h4, .navbar-brand {
    =========================================== */
 
 /* ---------- 13. หัวหน้าเพจ + Breadcrumb ---------- */
+/* ส่วนหัวของทุกหน้า (ยกเว้นหน้าแรกที่ใช้ .hero)
+   radial-gradient คือแสงจาง ๆ สีแดงมุมซ้ายบน ให้หัวหน้าไม่ดูแบนเกินไป */
 .page-head {
   padding: 40px 0 32px;
   border-bottom: 1px solid var(--cr-border);
@@ -563,6 +590,9 @@ h1, h2, h3, h4, .navbar-brand {
 
 
 /* ---------- 15. แถบเครื่องมือด้านบนรายการ ---------- */
+/* แถบเครื่องมือด้านบนรายการวิชา (ช่องค้นหา + จำนวนที่พบ + ตัวเลือกการเรียง)
+   ตัวจัดวางใช้ d-flex กับ justify-content-between ของ Bootstrap ใน HTML
+   ที่นี่กำหนดแค่หน้าตาของกล่อง */
 .toolbar {
   padding: 14px 20px;
 }
@@ -739,6 +769,8 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* ---------- 18. แท็บ ---------- */
+/* แท็บ — พฤติกรรมการสลับเป็นของ Bootstrap ทั้งหมด (ผ่าน data-bs-toggle ใน HTML)
+   ที่เขียนที่นี่คือ "หน้าตา" อย่างเดียว: เส้นใต้ สี และระยะห่าง */
 .cr-tabs {
   border-bottom: 1px solid var(--cr-border);
   gap: 4px;
@@ -838,6 +870,10 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* ---------- 20. Accordion (คำถามที่พบบ่อย) ---------- */
+/* Accordion — ใช้วิธีเขียนทับตัวแปรของ Bootstrap แทนการ override สีทีละบรรทัด
+   Bootstrap 5.3 เปิดตัวแปร --bs-accordion-* ให้แก้ได้
+   วิธีนี้ดีกว่าเขียน .accordion-button { color: ... !important }
+   เพราะไม่ต้องสู้เรื่อง specificity เลย */
 .cr-accordion {
   --bs-accordion-bg: transparent;
   --bs-accordion-color: var(--cr-text);
