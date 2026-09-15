@@ -37,7 +37,7 @@
 <body>
 
   <!-- ==================== NAVBAR ==================== -->
-  <nav class="navbar navbar-expand cr-navbar sticky-top">
+  <nav class="navbar navbar-expand-lg cr-navbar sticky-top">
     <div class="container">
 
       <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -46,8 +46,16 @@
       </a>
 
 
-      <div class="navbar-collapse">
-        <ul class="navbar-nav mx-auto gap-1">
+      <!-- ปุ่มแฮมเบอร์เกอร์ — โผล่เฉพาะจอเล็ก (Bootstrap ซ่อนให้เองเมื่อจอ >= lg)
+           data-bs-toggle/target = สั่งให้ JS ของ Bootstrap เปิด-ปิดกล่อง id="mainNav" -->
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="เปิด-ปิดเมนู">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-1 py-2 py-lg-0">
           <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
           <li class="nav-item"><a class="nav-link" href="courses.html">วิชาเสรีทั้งหมด</a></li>
           <!-- active = คลาสของ Bootstrap ใช้ทำสีพื้นหลัง
@@ -57,7 +65,7 @@
           <li class="nav-item"><a class="nav-link" href="about.html">ทดลองจัดอันดับ</a></li>
         </ul>
 
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-2 pb-2 pb-lg-0">
           <!-- ปุ่มสลับโหมดสว่าง/มืด — js/main.js ผูก event ไว้ที่ id นี้
                aria-label จำเป็น เพราะข้างในมีแต่ไอคอน ไม่มีข้อความให้อ่าน -->
           <button id="themeToggle" type="button" aria-label="สลับโหมดสว่าง/มืด">
@@ -142,7 +150,7 @@
       <div class="row g-4">
 
         <!-- ---------- คอลัมน์ซ้าย: ตารางแยกตามเกณฑ์ ---------- -->
-        <div class="col-8">
+        <div class="col-lg-8">
           <div class="panel">
 
             <!-- แท็บเลือกเกณฑ์การจัดอันดับ -->
@@ -186,10 +194,10 @@
                       <tr>
                         <th scope="col">อันดับ</th>
                         <th scope="col">วิชา</th>
-                        <th scope="col">หมวดหมู่</th>
-                        <th scope="col">หน่วยกิต</th>
+                        <th scope="col" class="d-none d-md-table-cell">หมวดหมู่</th>
+                        <th scope="col" class="d-none d-sm-table-cell">หน่วยกิต</th>
                         <th scope="col">คะแนน</th>
-                        <th scope="col">จำนวนรีวิว</th>
+                        <th scope="col" class="d-none d-md-table-cell">จำนวนรีวิว</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -201,10 +209,10 @@
                     <small>SWU 356 · คณะบริหารธุรกิจเพื่อสังคม</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">ธุรกิจ &amp; การเงิน</td>
-                <td class="text-body-secondary">3</td>
+                <td class="text-body-secondary d-none d-md-table-cell">ธุรกิจ &amp; การเงิน</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">3</td>
                 <td class="rank-value">4.7 <i class="bi bi-star-fill icon-xs"></i></td>
-                <td class="text-body-secondary">428 รีวิว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">428 รีวิว</td>
               </tr>
               <tr>
                 <th scope="row"><span class="rank-no top-2">2</span></th>
@@ -214,10 +222,10 @@
                     <small>SWU 132 · คณะมนุษยศาสตร์</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">ภาษา &amp; การสื่อสาร</td>
-                <td class="text-body-secondary">6</td>
+                <td class="text-body-secondary d-none d-md-table-cell">ภาษา &amp; การสื่อสาร</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">6</td>
                 <td class="rank-value">4.6 <i class="bi bi-star-fill icon-xs"></i></td>
-                <td class="text-body-secondary">241 รีวิว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">241 รีวิว</td>
               </tr>
               <tr>
                 <th scope="row"><span class="rank-no top-3">3</span></th>
@@ -227,10 +235,10 @@
                     <small>SWU 141 · สำนักนวัตกรรมการเรียนรู้</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">เทคโนโลยี</td>
-                <td class="text-body-secondary">3</td>
+                <td class="text-body-secondary d-none d-md-table-cell">เทคโนโลยี</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">3</td>
                 <td class="rank-value">4.5 <i class="bi bi-star-fill icon-xs"></i></td>
-                <td class="text-body-secondary">312 รีวิว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">312 รีวิว</td>
               </tr>
                     </tbody>
                   </table>
@@ -247,10 +255,10 @@
                       <tr>
                         <th scope="col">อันดับ</th>
                         <th scope="col">วิชา</th>
-                        <th scope="col">หมวดหมู่</th>
-                        <th scope="col">หน่วยกิต</th>
+                        <th scope="col" class="d-none d-md-table-cell">หมวดหมู่</th>
+                        <th scope="col" class="d-none d-sm-table-cell">หน่วยกิต</th>
                         <th scope="col">ปริมาณงาน</th>
-                        <th scope="col">คะแนนรวม</th>
+                        <th scope="col" class="d-none d-md-table-cell">คะแนนรวม</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -262,10 +270,10 @@
                     <small>SWU 141 · สำนักนวัตกรรมการเรียนรู้</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">เทคโนโลยี</td>
-                <td class="text-body-secondary">3</td>
+                <td class="text-body-secondary d-none d-md-table-cell">เทคโนโลยี</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">3</td>
                 <td class="rank-value">55 / 100</td>
-                <td class="text-body-secondary">4.5 ดาว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">4.5 ดาว</td>
               </tr>
               <tr>
                 <th scope="row"><span class="rank-no top-2">2</span></th>
@@ -275,10 +283,10 @@
                     <small>SWU 356 · คณะบริหารธุรกิจเพื่อสังคม</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">ธุรกิจ &amp; การเงิน</td>
-                <td class="text-body-secondary">3</td>
+                <td class="text-body-secondary d-none d-md-table-cell">ธุรกิจ &amp; การเงิน</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">3</td>
                 <td class="rank-value">60 / 100</td>
-                <td class="text-body-secondary">4.7 ดาว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">4.7 ดาว</td>
               </tr>
               <tr>
                 <th scope="row"><span class="rank-no top-3">3</span></th>
@@ -288,10 +296,10 @@
                     <small>SWU 132 · คณะมนุษยศาสตร์</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">ภาษา &amp; การสื่อสาร</td>
-                <td class="text-body-secondary">6</td>
+                <td class="text-body-secondary d-none d-md-table-cell">ภาษา &amp; การสื่อสาร</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">6</td>
                 <td class="rank-value">70 / 100</td>
-                <td class="text-body-secondary">4.6 ดาว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">4.6 ดาว</td>
               </tr>
                     </tbody>
                   </table>
@@ -308,10 +316,10 @@
                       <tr>
                         <th scope="col">อันดับ</th>
                         <th scope="col">วิชา</th>
-                        <th scope="col">หมวดหมู่</th>
-                        <th scope="col">หน่วยกิต</th>
+                        <th scope="col" class="d-none d-md-table-cell">หมวดหมู่</th>
+                        <th scope="col" class="d-none d-sm-table-cell">หน่วยกิต</th>
                         <th scope="col">จำนวนรีวิว</th>
-                        <th scope="col">คะแนนรวม</th>
+                        <th scope="col" class="d-none d-md-table-cell">คะแนนรวม</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -323,10 +331,10 @@
                     <small>SWU 356 · คณะบริหารธุรกิจเพื่อสังคม</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">ธุรกิจ &amp; การเงิน</td>
-                <td class="text-body-secondary">3</td>
+                <td class="text-body-secondary d-none d-md-table-cell">ธุรกิจ &amp; การเงิน</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">3</td>
                 <td class="rank-value">428 รีวิว</td>
-                <td class="text-body-secondary">4.7 ดาว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">4.7 ดาว</td>
               </tr>
               <tr>
                 <th scope="row"><span class="rank-no top-2">2</span></th>
@@ -336,10 +344,10 @@
                     <small>SWU 141 · สำนักนวัตกรรมการเรียนรู้</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">เทคโนโลยี</td>
-                <td class="text-body-secondary">3</td>
+                <td class="text-body-secondary d-none d-md-table-cell">เทคโนโลยี</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">3</td>
                 <td class="rank-value">312 รีวิว</td>
-                <td class="text-body-secondary">4.5 ดาว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">4.5 ดาว</td>
               </tr>
               <tr>
                 <th scope="row"><span class="rank-no top-3">3</span></th>
@@ -349,10 +357,10 @@
                     <small>SWU 132 · คณะมนุษยศาสตร์</small>
                   </a>
                 </td>
-                <td class="text-body-secondary">ภาษา &amp; การสื่อสาร</td>
-                <td class="text-body-secondary">6</td>
+                <td class="text-body-secondary d-none d-md-table-cell">ภาษา &amp; การสื่อสาร</td>
+                <td class="text-body-secondary d-none d-sm-table-cell">6</td>
                 <td class="rank-value">241 รีวิว</td>
-                <td class="text-body-secondary">4.6 ดาว</td>
+                <td class="text-body-secondary d-none d-md-table-cell">4.6 ดาว</td>
               </tr>
                     </tbody>
                   </table>
@@ -364,7 +372,7 @@
         </div>
 
         <!-- ---------- คอลัมน์ขวา: สรุปและอันดับรายหมวด ---------- -->
-        <aside class="col-4">
+        <aside class="col-lg-4">
           <div class="sticky-side">
 
             <!-- สถิติรวม -->
@@ -467,7 +475,7 @@
     <div class="container">
       <div class="row g-4">
 
-        <div class="col-4">
+        <div class="col-lg-4">
           <a class="navbar-brand d-flex align-items-center mb-3" href="index.html">
             <img src="images/logo.png" alt="SWU CLASSMATE" class="brand-logo brand-logo-lg"
                  width="271" height="160" />
@@ -478,7 +486,7 @@
           </p>
         </div>
 
-        <div class="col-2">
+        <div class="col-6 col-lg-2">
           <h2 class="h6 mb-3">เมนู</h2>
           <ul class="list-unstyled small mb-0">
             <li><a href="index.html">หน้าแรก</a></li>
@@ -488,7 +496,7 @@
           </ul>
         </div>
 
-        <div class="col-3">
+        <div class="col-6 col-lg-3">
           <h2 class="h6 mb-3">หมวดหมู่</h2>
           <ul class="list-unstyled small mb-0">
             <li><a href="courses.html">เทคโนโลยี</a></li>
@@ -498,7 +506,7 @@
           </ul>
         </div>
 
-        <div class="col-3">
+        <div class="col-6 col-lg-3">
           <h2 class="h6 mb-3">ติดตามเรา</h2>
           <div class="d-flex gap-2">
             <a href="#" class="chip" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
